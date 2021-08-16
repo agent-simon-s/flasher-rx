@@ -1,0 +1,169 @@
+{
+  "ems-questions": [
+    {
+      "question": "What is physiologial shock?",
+      "options": [
+        { "id": 1, "answer": "acute stress reaction"},
+        { "id": 2, "answer": "hypoperfusion"},
+        { "id": 3, "answer": "hypeperfusion"}
+      ],
+      "correct": 2,
+      "hint": "Physiologial shock occures when cardio-pulmianry mechanisms are interupted and oxenated blood fails perfuse throught all the tissue of the body. This can be caused by several things...It is a life threatening medical condition",
+      "subject": "EMS"
+    },
+    {
+      "question": "What is psycological shock?",
+      "options": [
+        { "id": 1, "answer": "acute stress reaction"},
+        { "id": 2, "answer": "hypoperfusion"},
+        { "id": 3, "answer": "hypeperfusion"}
+      ],
+      "correct": 1,
+      "hint": "When you lose your shit thats an acute stress reaction, which can have some phsiological symptoms, but is distinct from hypoperfusion and not life threatening",
+      "subject": "EMS"
+    },
+    {
+      "question": "Last question: What is yoru favorite color?",
+      "options": [
+        { "id": 1, "answer": "Red!"},
+        { "id": 2, "answer": "No! Blue."}
+      ],
+      "correct": "1",
+      "hint": "Necromancer will get you",
+      "subject": "EMS"
+    }
+  ],
+  "nert-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "NERT"
+    }
+  ],
+  "ham-questions": [
+    {
+      "question": "What is VHF",
+      "options": [
+        { "id": 1, "answer": "3 to 30 MHz"},
+        { "id": 2, "answer": "30 MHz to 300 MHz,"},
+        { "id": 3, "answer": "300 MHz to 3Ghz"}
+      ],
+      "correct": "2",
+      "hint": "VHF is 2meter. Its operational ham bands are 144.000 MHz to 148.000 MHz. It's offset is 600KHz (aka 0.6MHz)* is http://en.wikipedia.org/wiki/2-meter_band *By gentlemans agreement the freqs below 147.000 on a 2 meter system use a - offset, and those above 147.000 use a + offset.",
+      "subject": "ham"
+    },
+    {
+      "question": "What is UHF",
+      "options": [
+        { "id": 1, "answer": "3 to 30 MHz"},
+        { "id": 2, "answer": "30 MHz to 300 MHz,"},
+        { "id": 3, "answer": "300 MHz to 3Ghz"}
+      ],
+      "correct": "3",
+      "hint": "UHF is 2 70cm. Its operational ham bands are 420 to 450 MHz (US). It's offset is  5.0MHz (aka 50KHz). See http://en.wikipedia.org/wiki/2-meter_band",
+      "subject": "ham"
+    },
+    {
+      "question": "What is HF",
+      "options": [
+        { "id": 1, "answer": "3 to 30 MHz"},
+        { "id": 2, "answer": "30 MHz to 300 MHz,"},
+        { "id": 3, "answer": "300 MHz to 3Ghz"}
+      ],
+      "correct": "1",
+      "hint": "Also called shortwave",
+      "subject": "ham"
+    }
+  ],
+  "klr-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "KLR"
+    }
+  ],
+  "metric-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "metric"
+    }
+  ],
+  "marksman-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "marksman"
+    }
+  ],
+  "geo-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "geo"
+    }
+  ],
+  "nautical-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "nautical"
+    }
+  ],
+  "last-questions": [
+    {
+      "question": "What is xx",
+      "options": [
+        { "id": 1, "answer": "xx"},
+        { "id": 2, "answer": "xx"},
+        { "id": 3, "answer": "xx"},
+        { "id": 4, "answer": "xx"}
+      ],
+      "correct": "1",
+      "hint": "xx",
+      "subject": "last"
+    }
+  ]
+}
