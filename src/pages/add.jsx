@@ -39,7 +39,7 @@ function AddCardPage () {
     return (
         <section>
             <div>
-                <h1>Add New Meet</h1>
+                <h1>Add A New Card</h1>
             </div>
             <FormAddComp onAddNewMeet={addNewMeetHandler} />
         </section>
