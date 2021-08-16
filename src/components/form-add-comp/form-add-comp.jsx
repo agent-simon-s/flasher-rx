@@ -3,35 +3,38 @@ import ContentCardComp from '../content-card/card-comp.jsx';
 import './form-add-comp.css'
 
 function FormAddComp(props){
-    const inptTitleRef = useRef();
-    const inptYearRef = useRef();
-    const inptMonthRef = useRef();
-    const inptDayRef = useRef();
-    const inptAddyRef = useRef();
-    const inptDescRef = useRef();
+    const inptTopicRef = useRef();
+    // const inptYearRef = useRef();
+    // const inptMonthRef = useRef();
+    // const inptDayRef = useRef();
+    const inptPoserRef = useRef();
+    const inptAnswerRef = useRef();
+    const inptHintRef = useRef();
     const inptImgSrcRef = useRef();
 
 
     function submitHandler(event) {
         event.preventDefault();
 
-        const entTitle = inptTitleRef.current.value;
-        const entYear = inptYearRef.current.value;
-        const entMonth = inptMonthRef.current.value;
-        const entDay = inptDayRef.current.value;
-        const entAddy = inptAddyRef.current.value;
-        const entDesc = inptDescRef.current.value;
+        const entTopic = inptTopicRef.current.value;
+        // const entYear = inptYearRef.current.value;
+        // const entMonth = inptMonthRef.current.value;
+        // const entDay = inptDayRef.current.value;
+        const entPoser = inptPoserRef.current.value;
+        const entAnswer = inptAnswerRef.current.value;
+        const entHint = inptHintRef.current.value;
         const entImgSrc = inptImgSrcRef.current.value;
 
         const Data = {
-            title: entTitle,
-            date: {
-                year: entYear,
-                month: entMonth,
-                day: entDay,
-            },
-            address: entAddy,
-            description: entDesc,
+            topic: entTopic,
+            // date: {
+            //     year: entYear,
+            //     month: entMonth,
+            //     day: entDay,
+            // },
+            poser: entPoser,
+            answer: entAnswer,
+            hint: entHint,
             img: entImgSrc
         };
 
@@ -44,28 +47,20 @@ function FormAddComp(props){
         <ContentCardComp>
            <form action=""  className="form" onSubmit={submitHandler}>
                <div className="control">
-                   <label htmlFor="title" >TITLE</label>
-                   <input type="text" require id="title" ref={inptTitleRef} />
+                   <label htmlFor="topic" >TOPIC</label>
+                   <input type="text" require id="topic" ref={inptTopicRef} />
                </div>
                <div className="control">
-                   <label htmlFor="year">YEAR</label>
-                   <input type="text" require id="year" maxLength="4" ref={inptYearRef} />
+                   <label htmlFor="poser">POSER</label>
+                   <input type="text" require id="poser"   ref={inptPoserRef} />
                </div>
                <div className="control">
-                   <label htmlFor="month">MONTH</label>
-                   <input type="text" require id="month" maxLength="2" ref={inptMonthRef} />
+                   <label htmlFor="answer">ANSWER</label>
+                   <input type="text" require id="answer"   ref={inptAnswerRef} />
                </div>
                <div className="control">
-                   <label htmlFor="day">DAY</label>
-                   <input type="text" require id="day" maxLength="2" ref={inptDayRef} />
-               </div>
-               <div className="control">
-                   <label htmlFor="address">ADDRESS</label>
-                   <input type="text" require id="address"   ref={inptAddyRef} />
-               </div>
-               <div className="control">
-                   <label htmlFor="description" >DESCRIPTION</label>
-                   <textarea name="description" require id="description" cols="10" rows="5" ref={inptDescRef}></textarea>
+                   <label htmlFor="hint" >HINT</label>
+                   <textarea name="hint" require id="hint" cols="10" rows="5" ref={inptHintRef}></textarea>
                </div>
                <div className="control">
                    <label htmlFor="imgsrc">IMG LINK</label>
