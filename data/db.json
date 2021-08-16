@@ -1,0 +1,76 @@
+{
+  "events": [
+    {
+      "id": 12305,
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "day": 12
+      },
+      "title": "Virgil's Sea Room",
+      "img": "https://s.hdnux.com/photos/01/16/60/34/20645639/3/rawImage.jpg",
+      "address": "3152 Mission St, San Francisco, CA 94110",
+      "desc": "All the while dancing into oblivion"
+    },
+    {
+      "id": 12306,
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "day": 15
+      },
+      "title": "El Rio",
+      "img": "https://images.squarespace-cdn.com/content/v1/5ecdaf9ee89946698326f854/1590573455406-S6Z91HWDZVK6HAYCG68D/Screen+Shot+2020-05-25+at+7.49.56+PM.png?format=1500w",
+      "address": "3158 Mission St, San Francisco, CA 94110",
+      "desc": "All the while dancing into oblivion"
+    },
+    {
+      "id": 12307,
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "day": 18
+      },
+      "title": "Wild Side West",
+      "img": "https://crystalmethelmo.com/img/queereye-crazed.jpg",
+      "address": "424 Cortland Avenue San Francisco, CA 94110",
+      "desc": "All the while dancing into oblivion"
+    },
+    {
+      "id": 12308,
+      "date": {
+        "year": 2017,
+        "month": 8,
+        "day": 21
+      },
+      "title": "Zeitgeist sf",
+      "img": "https://s.hdnux.com/photos/01/10/20/35/18941816/3/rawImage.jpg",
+      "address": "199 Valencia St, San Francisco, CA 94103",
+      "desc": "Founded in 1977, the bar and beer garden Zeitgeist is a Historic Legacy Business in San Francisco. We are known for our Bloody Marys, Margaritas, 64 taps of craft beer, and full bar. One of the few bars with outdoor seating in chilly San Francisco, Zeitgeist remains the spirit of the times, true to its name"
+    },
+    {
+      "title": "KTM Still for sale?",
+      "date": {
+        "year": "2021",
+        "month": "10",
+        "day": "17"
+      },
+      "address": "PO Box 881251",
+      "description": "vergbml. jtkj degetrh liulktykm",
+      "img": "",
+      "id": 12309
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "q": "what is your favorite color", 
+      "choices": { 
+        "a": {
+          "text": "orange",
+           "is": true
+        }
+      }
+    }
+  ]
+}
