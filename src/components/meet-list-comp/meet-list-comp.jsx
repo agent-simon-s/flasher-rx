@@ -10,10 +10,11 @@ function MeetListComp (props) {
                         <MeetDetailComp 
                             key={meet.id} 
                             id={meet.id} 
-                            date={meet.date} 
-                            title={meet.title}
-                            addy={meet.address}
-                            desc={meet.description}
+                            // date={meet.date} 
+                            topic={meet.topic}
+                            poser={meet.poser}
+                            choices={meet.choices}
+                            hint={meet.hint}
                             img={meet.img} />
                     )
                 })
