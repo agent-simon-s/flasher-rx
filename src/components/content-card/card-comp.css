@@ -1,0 +1,10 @@
+.content-container-card {
+    display: block;
+    position: relative;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: 1px solid #DDD;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 2px 3px #ccc;
+}

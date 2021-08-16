@@ -1,0 +1,52 @@
+.layout-page-default{
+  box-sizing: border-box;
+  position: static;
+  top: 0;
+  left: 1;
+  right: 1;
+  bottom: 0;
+  /*width: auto;*/
+  /*height: auto;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.75rem;
+  background-color: #ddd9cc;
+  box-shadow: 2px 3px #ccc;
+  overflow: hidden;
+  overflow-y: scroll;*/
+}
+
+.content-main {
+/*  display: block;
+  position: relative;*/
+/*  top: 3rem;*/
+ /* left: 0;
+  right: 0;*/
+ /* width: auto;*/
+/*  overflow-x: none;
+  overflow-y: scroll;*/
+
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.75rem;
+  background-color: #ddd9cc;
+  box-shadow: 2px 3px #ccc;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+h1{
+  font-size: 0.8rem;
+  margin-top: 0.0rem;
+  margin-bottom: 0.1rem;
+}

@@ -1,0 +1,60 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 3.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #999;
+  box-shadow: 2px 3px #ccc;
+  z-index: 100;
+}
+
+.masthead{
+  display: inline-block;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+.masthead h1{
+  padding: 0;
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 3.2rem;
+}
+
+nav{
+  
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+}
+ul.nav-list li {
+  list-style: none;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+ul.nav-list li a {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  margin: 0;
+  border: 1px solid #DDD;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  /*box-shadow: 2px 3px #ccc;*/
+}
