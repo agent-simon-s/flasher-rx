@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import FormAddComp from '../components/form-add-comp/form-add-comp.jsx'
 
-function NewMeetUpPage () {
+function AddCardPage () {
     const history = useHistory();
     // const[ lastID, setLastID ] = useState();
 
@@ -46,4 +46,4 @@ function NewMeetUpPage () {
     )
 }
 
-export default NewMeetUpPage;
+export default AddCardPage;

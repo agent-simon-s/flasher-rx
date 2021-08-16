@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import AllMeetUpPage from './pages/all.jsx';
 import FavoritesPage from './pages/favorites.jsx';
-import NewMeetUpPage from './pages/new.jsx';
+import AddCardPage from './pages/new.jsx';
 import LayoutPageDef from './layouts/layout-page-default/layout-page-default.jsx'
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
           <Route path="/favorites">
             <FavoritesPage></FavoritesPage>
           </Route>
-          <Route path="/new">
-            <NewMeetUpPage></NewMeetUpPage>
+          <Route path="/add">
+            <AddCardPage></AddCardPage>
           </Route>
           <Route path="/">
             <AllMeetUpPage></AllMeetUpPage>
