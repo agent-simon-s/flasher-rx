@@ -4,6 +4,7 @@ import MeetListComp from "../components/meet-list-comp/meet-list-comp.jsx"
 //  
 
 function AllMeetUpPage() {
+    const [error, setError] = useState(null);
     const[ isLoading, setIsLoading ] = useState(true);
     const[ eventList, setEventList ] = useState(null);
 
@@ -18,6 +19,10 @@ function AllMeetUpPage() {
             setIsLoading(false);
             console.log(data);
             setEventList(data);
+        },
+        (error) => {
+          setIsLoading(false);
+          setError(error);
         });
     },[]);
 
@@ -25,7 +30,8 @@ function AllMeetUpPage() {
     return (
         <section>
             <h1>Drinkups Home</h1>
-            { !eventList && <p>Loading Events...</p> }
+            { error && <p>Could not Load Data at this time</p> }
+            { isLoading && <p>Loading your next question...</p> }
             { eventList && <MeetListComp meets={eventList}></MeetListComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
