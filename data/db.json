@@ -2,35 +2,63 @@
   "flashcards": [
     {
       "id": 1,
-      "topic": ["test"],
-      "poser": "what is your favorite color", 
-      "hint" : "go with your gut",
+      "topic": ["mock"],
+      "poser": "what is your name", 
+      "hint" : "Whoooo are you",
       "choices": [ 
         {
-          "text": "orange",
+          "text": "King of the Brittons",
            "is": false
         },
         {
-          "text": "red",
+          "text": "Anarcho-syndicalist commune memeber",
            "is": false
         },
         {
-          "text": "no blue",
+          "text": "Sir Lance a lot",
            "is": true
         },
         {
-          "text": "Aiiiiiyyeeeeeeeeeeeee",
+          "text": "A Watery Tart Distributing Swords",
            "is": false
         }
       ],
-      "img": {
+      "img": [{
         "src": "https://static.wikia.nocookie.net/villains/images/b/b4/Stop.jpg/revision/latest/scale-to-width-down/350?cb=20160310182331",
         "alt": "What is your favorite color?"
-      }
+      }]
     },
     {
       "id": 1,
-      "topic": ["test"],
+      "topic": ["mock"],
+      "poser": "what is your quest", 
+      "hint" : "It's like the holy grail",
+      "choices": [ 
+        {
+          "text": "Large plots of Land",
+           "is": false
+        },
+        {
+          "text": "Unladen Swallow",
+           "is": false
+        },
+        {
+          "text": "The Holy Grail",
+           "is": true
+        },
+        {
+          "text": "Watery Tart",
+           "is": false
+        }
+      ],
+      "img": [{
+        "src": "https://static.wikia.nocookie.net/villains/images/b/b4/Stop.jpg/revision/latest/scale-to-width-down/350?cb=20160310182331",
+        "alt": "What is your favorite color?"
+      }]
+    },
+    {
+      "id": 1,
+      "topic": ["mock"],
       "poser": "what is your favorite color", 
       "hint" : "go with your gut",
       "choices": [ 
@@ -51,10 +79,10 @@
            "is": false
         }
       ],
-      "img": {
+      "img": [{
         "src": "https://static.wikia.nocookie.net/villains/images/b/b4/Stop.jpg/revision/latest/scale-to-width-down/350?cb=20160310182331",
         "alt": "What is your favorite color?"
-      }
+      }]
     }
   ]
 }

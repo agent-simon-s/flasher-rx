@@ -10,7 +10,7 @@ function AllMeetUpPage() {
 
     useEffect(() => {
         console.log("use efect test");
-        fetch('http://localhost:8000/events').then(responce => { 
+        fetch('http://localhost:8000/flashcards').then(responce => { 
             return responce.json();
         }).then(
         (data) => {
