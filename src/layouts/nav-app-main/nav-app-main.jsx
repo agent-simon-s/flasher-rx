@@ -11,7 +11,7 @@ function NavMain(props){
                <li><Link to="/intro">Intro</Link></li>
                <li><Link to="/all">All</Link></li>
                <li><Link to="/faq">FAQ</Link></li>
-               <li><Link to="/new">New</Link></li>
+               <li><Link to="/add">ADD</Link></li>
                {/*<li><Link to="/favorites">Fav</Link></li>*/}
            </ul>
            <div>
