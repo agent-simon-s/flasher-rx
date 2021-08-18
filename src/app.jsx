@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import './app.scss';
 import IntroPage from './pages/intro.jsx';
 import AllMeetUpPage from './pages/all.jsx';
 import FavoritesPage from './pages/favorites.jsx';
