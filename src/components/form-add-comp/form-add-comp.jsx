@@ -8,7 +8,8 @@ function FormAddComp(props){
     // const inptMonthRef = useRef();
     // const inptDayRef = useRef();
     const inptPoserRef = useRef();
-    const inptAnswerRef = useRef();
+    const inptAnswerOneRef = useRef();
+    const inptAnswerTwoRef = useRef();
     const inptHintRef = useRef();
     const inptImgSrcRef = useRef();
 
@@ -21,7 +22,8 @@ function FormAddComp(props){
         // const entMonth = inptMonthRef.current.value;
         // const entDay = inptDayRef.current.value;
         const entPoser = inptPoserRef.current.value;
-        const entAnswer = inptAnswerRef.current.value;
+        const entAnswerOne = inptAnswerOneRef.current.value;
+        const entAnswerTwo = inptAnswerTwoRef.current.value;
         const entHint = inptHintRef.current.value;
         const entImgSrc = inptImgSrcRef.current.value;
 
@@ -33,9 +35,17 @@ function FormAddComp(props){
             //     day: entDay,
             // },
             poser: entPoser,
-            answer: entAnswer,
+            // answer: entAnswer,
+            choices: [ 
+                { 
+                    text: entAnswerOne, is: true
+                },
+                {
+                    text: entAnswerTwo, is: false
+                }
+             ],
             hint: entHint,
-            img: entImgSrc
+            img: [{ src: entImgSrc, alt: "yaas" }]
         };
 
         console.log(Data);
@@ -55,8 +65,12 @@ function FormAddComp(props){
                    <input type="text" require id="poser"   ref={inptPoserRef} />
                </div>
                <div className="control">
-                   <label htmlFor="answer">ANSWER</label>
-                   <input type="text" require id="answer"   ref={inptAnswerRef} />
+                   <label htmlFor="answer">CORRECT ANSWER</label>
+                   <input type="text" require id="answerOne"   ref={inptAnswerOneRef} />
+               </div>
+               <div className="control">
+                   <label htmlFor="answer">DISTRACTOR ANSWER</label>
+                   <input type="text" require id="answerTwo"   ref={inptAnswerTwoRef} />
                </div>
                <div className="control">
                    <label htmlFor="hint" >HINT</label>
