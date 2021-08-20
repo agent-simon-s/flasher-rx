@@ -4,9 +4,9 @@ import MeetListComp from "../components/meet-list-comp/meet-list-comp.jsx"
 //  
 
 function AllMeetUpPage() {
-    const [error, setError] = useState(null);
-    const[ isLoading, setIsLoading ] = useState(true);
-    const[ eventList, setEventList ] = useState(null);
+    const[ error, setError] = useState(null);
+    const[ isLoaded, setIsLoaded ] = useState(false);
+    const[ cardList, setCardList ] = useState([]);
 
     useEffect(() => {
         console.log("use efect test");
@@ -14,14 +14,13 @@ function AllMeetUpPage() {
             return responce.json();
         }).then(
         (data) => {
-            //2do:  error handling here 
             //3:10 spread version
-            setIsLoading(false);
+            setIsLoaded(true);
             console.log(data);
-            setEventList(data);
+            setCardList(data);
         },
         (error) => {
-          setIsLoading(false);
+          setIsLoaded(true);
           setError(error);
         });
     },[]);
@@ -29,10 +28,10 @@ function AllMeetUpPage() {
 
     return (
         <section>
-            <h1>Drinkups Home</h1>
+            <h1>All The Questions</h1>
             { error && <p>Could not Load Data at this time</p> }
             { isLoading && <p>Loading your next question...</p> }
-            { eventList && <MeetListComp meets={eventList}></MeetListComp> }
+            { cardList && <MeetListComp meets={cardList}></MeetListComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
@@ -46,7 +45,7 @@ function AllMeetUpPage() {
                 </ul>
             */}    
         </section>
-       )
+    );
 }
 
 export default AllMeetUpPage;
