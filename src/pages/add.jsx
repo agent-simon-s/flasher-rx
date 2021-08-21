@@ -20,7 +20,7 @@ function AddCardPage () {
 
     function addNewMeetHandler(Data) {
         fetch(
-            'http://localhost:8000/events', 
+            'http://localhost:1337/flashcards', 
             { 
                 method: 'POST', 
                 body: JSON.stringify(Data),
