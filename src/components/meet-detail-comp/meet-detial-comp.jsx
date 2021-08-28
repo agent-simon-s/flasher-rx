@@ -1,4 +1,5 @@
 import ContentCardComp from '../content-card/card-comp.jsx';
+import { useState} from 'react';
 import './meet-detial-comp.css';
 
 
@@ -13,8 +14,10 @@ function MeetDetailComp(props) {
 
 
     return (
+        <>
+        { isAsked && (
         <li key={props.id}>
-            { isActive || isAsked && "active" : null }
+            
             <ContentCardComp className={ isActive ? "active" : null } >
                 <h3 className='detail-title'>{/*{props.date.month}/{props.date.day}*/}{props.poser}</h3> 
                 <div className="frontSide">
@@ -31,7 +34,7 @@ function MeetDetailComp(props) {
                         } 
                     </div>
                     <button >
-                        < >
+                        hi
                     </button>
                 </div>
                 <div className="backSide">
@@ -53,7 +56,8 @@ function MeetDetailComp(props) {
                     </div>
                 </div>
             </ContentCardComp>
-        </li>
+        </li> ) }
+        </>
     )
 }
 
