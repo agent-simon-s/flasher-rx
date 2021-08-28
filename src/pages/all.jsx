@@ -7,6 +7,7 @@ function AllMeetUpPage() {
     const[ error, setError] = useState(null);
     const[ isLoaded, setIsLoaded ] = useState(false);
     const[ cardList, setCardList ] = useState([]);
+    const[ currentCard, setCrrentCard ] = useState([]);
 
     useEffect(() => {
         console.log("use efect test");
@@ -30,7 +31,7 @@ function AllMeetUpPage() {
         <section>
             <h1>All The Questions</h1>
             { error && <p>Could not Load Data at this time</p> }
-            { isLoading && <p>Loading your next question...</p> }
+            { !isLoaded && <p>Loading your next question...</p> }
             { cardList && <MeetListComp meets={cardList}></MeetListComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
