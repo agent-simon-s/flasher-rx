@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react"
 import MeetListComp from "../components/meet-list-comp/meet-list-comp.jsx"
 
-//  
+//  on load copy all questions to new array
+//  - will add topic filter later
+//  print new array
+//  - local storage
+//  - context first card
 
 function QuizPage() {
     const [error, setError] = useState(null);
     const[ isLoading, setIsLoading ] = useState(true);
-    const[ eventList, setEventList ] = useState(null);
+    const[ questionList, setQuestionList ] = useState(null);
 
     useEffect(() => {
         console.log("use efect test");
@@ -18,7 +22,7 @@ function QuizPage() {
             //3:10 spread version
             setIsLoading(false);
             console.log(data);
-            setEventList(data);
+            setQuestionList(data);
         },
         (error) => {
           setIsLoading(false);
@@ -32,7 +36,7 @@ function QuizPage() {
             <h1>Drinkups Home</h1>
             { error && <p>Could not Load Data at this time</p> }
             { isLoading && <p>Loading your next question...</p> }
-            { eventList && <MeetListComp meets={eventList}></MeetListComp> }
+            { questionList && <MeetListComp meets={questionList}></MeetListComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
