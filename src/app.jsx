@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import './app.css';
 import IntroPage from './pages/intro.jsx';
-import AllMeetUpPage from './pages/all.jsx';
+import AllCardPage from './pages/all.jsx';
 import FAQPage from './pages/faq.jsx';
 import QuizPage from './pages/quiz.jsx';
 import FavoritesPage from './pages/favorites.jsx';
@@ -26,7 +26,7 @@ function App() {
             <QuizPage></QuizPage>
           </Route>
           <Route path="/all">
-            <AllMeetUpPage></AllMeetUpPage>
+            <AllCardPage></AllCardPage>
           </Route>
           <Route path="/">
             <IntroPage></IntroPage>

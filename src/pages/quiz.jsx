@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import MeetListComp from "../components/meet-list-comp/meet-list-comp.jsx"
+import CardStackComp from "../components/card-stack-comp/card-stack-comp"
 
 //  on load copy all questions to new array
 //  - will add topic filter later
@@ -33,10 +33,9 @@ function QuizPage() {
 
     return (
         <section>
-            <h1>Drinkups Home</h1>
             { error && <p>Could not Load Data at this time</p> }
             { isLoading && <p>Loading your next question...</p> }
-            { questionList && <MeetListComp meets={questionList}></MeetListComp> }
+            { true && <CardStackComp meets={questionList}></CardStackComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import MeetListComp from "../components/meet-list-comp/meet-list-comp.jsx"
+import React, { useState, useEffect } from "react";
+import CardStackComp from "../components/card-stack-comp/card-stack-comp";
 
 //  
 
-function AllMeetUpPage() {
+function AllCardPage() {
     const[ error, setError] = useState(null);
     const[ isLoaded, setIsLoaded ] = useState(false);
     const[ cardList, setCardList ] = useState([]);
@@ -32,7 +32,7 @@ function AllMeetUpPage() {
             <h1>All The Questions</h1>
             { error && <p>Could not Load Data at this time</p> }
             { !isLoaded && <p>Loading your next question...</p> }
-            { cardList && <MeetListComp meets={cardList}></MeetListComp> }
+            { cardList && <CardStackComp meets={cardList}></CardStackComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
@@ -49,5 +49,5 @@ function AllMeetUpPage() {
     );
 }
 
-export default AllMeetUpPage;
+export default AllCardPage;
 
