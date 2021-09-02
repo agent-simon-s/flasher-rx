@@ -36,11 +36,12 @@
   width: auto;
   height: auto;
   padding-top: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.33rem;
+  padding-right: 0.36rem;
   padding-bottom: 1.75rem;
-  background-color: #ddd9cc;
-  box-shadow: 2px 3px #ccc;
+  background-color: #BFC3BA;
+  /*background: linear-gradient(180deg, #fefefeff, #bfc3baff, #a9aca9ff);*/
+  box-shadow: 2px 3px #343E3D;
   overflow: hidden;
   overflow-y: scroll;
 }

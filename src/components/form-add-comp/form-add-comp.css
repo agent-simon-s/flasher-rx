@@ -7,7 +7,7 @@
 }
 
 .control label {
-  font-size: 0.8rem;
+  font-size: 0.66rem;
   display: block;
   font-weight: bold;
   margin-bottom: 0.2rem;
@@ -24,6 +24,12 @@
   width: 100%;
 }
 
+.control input::focus,
+.control textarea::focus {
+  border: 1px solid #406FA0;
+}
+
+
 .actions {
   margin-top: 1rem;
   text-align: right;
@@ -32,12 +38,12 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: #77002e;
+  background-color: #FF8811;
   color: white;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #77002e;
+  border: 1px solid #343E3D;
   border-radius: 4px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .actions button:hover,
