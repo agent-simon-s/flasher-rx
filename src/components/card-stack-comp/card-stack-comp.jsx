@@ -16,7 +16,7 @@ function CardStackComp (props) {
     return (
          <div>
             <ul>
-             {props.meets.map((meet, index) => {
+                {props.meets.map((meet, index) => {
                     return(
                         <QuestionDetailComp 
                             key={meet.id} 
@@ -28,7 +28,8 @@ function CardStackComp (props) {
                             poser={meet.poser}
                             choices={meet.choices}
                             hint={meet.hint}
-                            img={meet.img} />
+                            img={meet.img}
+                            asked={index == 0 ? true : false } />
                     )
                 })
              }
@@ -40,6 +41,4 @@ function CardStackComp (props) {
 export default CardStackComp ;
 
 // notes:
-// pass whole mett objects & deconstruct in detail
-// own css
-// date stuff 
+// pass whole mett objects & deconstruct in detail 
