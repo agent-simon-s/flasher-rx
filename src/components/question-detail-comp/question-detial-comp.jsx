@@ -17,6 +17,8 @@ function QuestionDetailComp(props) {
     //const[ isActive, setIsActive] = useState(false);
     //const[ isAsked, setIsAsked] = useState(false);
     const[ isFlipped, setIsFlipped ] = useState(false);
+    const[ wasFlipped, setWasFlipped ] = useState(false);
+    const[ chosen, setChosen ] = useState(null);
     const[ myAnswerIs, setMyAnswerIs ] = useState(null);
     const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
@@ -28,13 +30,15 @@ function QuestionDetailComp(props) {
             setIsFlipped(false);
         } else {
             setIsFlipped(true);
+            setWasFlipped(true);
+            setIsRevealed(true);
         }
         console.log("flip");
     }
 
-    function selectAnswer(answer) {
-        console.log(`select ${answer}`);
-        setMyAnswerIs(answer);
+    function selectAnswer(choice, validity) {
+        console.log(`select ${choice} is ${validity}`);
+        setMyAnswerIs(choice);
     }
 
     function checkAnswer(answer) {
@@ -43,8 +47,8 @@ function QuestionDetailComp(props) {
     }
 
     function nextQuestionPlease() {
-        setIsRevealed(true);
-        setMyAnswerIs(null);
+        // setIsRevealed(true);
+        // setMyAnswerIs(null);
     }
 
     return (
@@ -63,10 +67,11 @@ function QuestionDetailComp(props) {
                                     return(
                                         <li 
                                             key={index} 
-                                            onClick={() => selectAnswer(item.is) }
-                                            className={ `${(isRevealed && item.is) ? "correct" : ""} 
-                                                        ${(isRevealed && !item.is) ? "wrong" : ""}
-                                                        ${(isRevealed && false && !item.is) ? "wrong" : ""}`
+                                            onClick={() => selectAnswer(index, item.is) }
+                                            className={ `${(myAnswerIs == index) ? "chosen" : ""}
+                                                        ${(isRevealed && item.is) ? "correct" : ""} 
+                                                        ${(isRevealed && !item.is) ? "incorrect" : ""}
+                                                        ${(myAnswerIs == index && isRevealed && !item.is) ? "wrong" : ""}`
                                                     }>
                                             {item.text}
                                         </li>
@@ -98,7 +103,7 @@ function QuestionDetailComp(props) {
                             <p>{props.hint}</p> 
                         </div>
                         <div className='detail-thumb'>
-                            <img src={props.img[0].src} alt={props.img[0].alt} />
+                             {/* <img src={props.img[0].src} alt={props.img[0].alt} /> */}
                         </div>
                     </div>
                 </div>
@@ -107,14 +112,14 @@ function QuestionDetailComp(props) {
                     <button className='btn btn-close' onClick={flipCard}>
                         Turn Over
                     </button>
-                    <button onClick={checkAnswer}>
+                    <button onClick={checkAnswer} disabled={ isRevealed || myAnswerIs === null }>
                         Answer
                     </button>
-                    <button onClick={nextQuestionPlease}>
+                    <button onClick={nextQuestionPlease} disabled={!isRevealed}>
                         Next
                     </button>
                     <button>
-                        [+]Topic: {props.topic}
+                        [+]
                     </button>
                 </div>
             
