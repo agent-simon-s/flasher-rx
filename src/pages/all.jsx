@@ -7,7 +7,7 @@ function AllCardPage() {
     const[ error, setError] = useState(null);
     const[ isLoaded, setIsLoaded ] = useState(false);
     const[ cardList, setCardList ] = useState([]);
-    const[ currentCard, setCrrentCard ] = useState([]);
+    //const[ currentCard, setCrrentCard ] = useState([]);
 
     useEffect(() => {
         console.log("use efect test");
