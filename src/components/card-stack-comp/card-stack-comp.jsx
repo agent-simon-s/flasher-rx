@@ -1,15 +1,28 @@
-import MeetDetailComp from "../meet-detail-comp/meet-detial-comp.jsx";
-import '../meet-detail-comp/meet-detial-comp.css';
+//import MeetDetailComp from "../meet-detail-comp/meet-detial-comp.jsx";
+import { useState, useEffect } from "react";
+import QuestionDetailComp from "../question-detail-comp/question-detial-comp.jsx";
+import './card-stack-comp.css';
 
-function MeetListComp (props) {
+
+function CardStackComp (props) {
+    //const count = props.meets.length;
+    const[ qCount, setQCount ] = useState();
+
+    useEffect(() => {
+        setQCount(props.meets.length)
+        console.log(qCount);
+    },[]);
+
     return (
          <div>
             <ul>
-             {props.meets.map((meet) => {
+             {props.meets.map((meet, index) => {
                     return(
-                        <MeetDetailComp 
+                        <QuestionDetailComp 
                             key={meet.id} 
                             id={meet.id} 
+                            ndx={index}
+                            count={qCount}
                             // date={meet.date} 
                             topic={meet.topic}
                             poser={meet.poser}
@@ -24,7 +37,7 @@ function MeetListComp (props) {
     )
 }
 
-export default MeetListComp ;
+export default CardStackComp ;
 
 // notes:
 // pass whole mett objects & deconstruct in detail
