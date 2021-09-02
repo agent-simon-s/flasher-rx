@@ -39,10 +39,10 @@ ol li{
     position: relative;
     display: block;
     top:-0.2rem;
-    left: 0;
+    left: 0.3rem;
     width: 100%;
     height: 2rem;
-    margin: 0;
+    margin: 0 0 0.5rem;
     padding: 0;
     text-align: left;
     text-transform: capitalize;
@@ -81,31 +81,37 @@ ol li{
    display: inline-block;
    text-align: left;
 }
-
+li.chosen {  
+    font-weight: 600;
+}
 li.correct {  
-    color: green;
+    color: #028090;
+    font-weight: 700;
 }
 li.correct::before {
     position: absolute;
-    left: -2rem;
-    font-size: 1.25rem;
+    left: -2.13rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     text-decoration: none;
     content: "✓";
-    color: green;
+    color: #028090;
 }
-
-li.wrong {  
-    color: burgandy;
+li.incorrect {  
+    /*color: burgandy;*/
     text-decoration: line-through;
+}
+li.wrong {  
+    color: #8D0801;
 }
 li.wrong::before {
     position: absolute;
-    left: -2rem;
-    font-size: 1.1rem;
+    left: -2.05rem;
+    font-size: 0.68rem;
     text-decoration: none;
     /*content: "🚫";*/
     content: "❌";
-    color: red;
+    color: #8D0801;
 }
 
 .detail-thumb {
@@ -125,7 +131,7 @@ li.wrong::before {
     display: flex;
     flex-direction: row;
     align-items: right;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%; 
     z-index: 10;
 }
@@ -142,4 +148,8 @@ button{
     text-transform: uppercase;
     font-size: 0.66rem;
     font-weight: 500;
+}
+button:disabled {
+    opacity: 0.4;
+    background-color: #A9ACA9;
 }
