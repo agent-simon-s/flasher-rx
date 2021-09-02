@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
-import FormAddComp from '../components/form-add-comp/form-add-comp.jsx'
+import FormAddComp from '../components/form-add-comp/form-add-comp.jsx';
+//import { FETCH_PATH } from "../shared/constants" 
 
 function AddCardPage () {
     const history = useHistory();
