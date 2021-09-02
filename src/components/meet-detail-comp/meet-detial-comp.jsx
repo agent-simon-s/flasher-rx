@@ -5,12 +5,12 @@ import './meet-detial-comp.css';
 
 function MeetDetailComp(props) {
     const[ isActive, setIsActive] = useState(false);
-    const[ isAsked, setIsAsked] = useState(false);
-    const[ isCorrect, setIsCorrect] = useState(null);
+    //const[ isAsked, setIsAsked] = useState(false);
+    //const[ isCorrect, setIsCorrect] = useState(null);
 
-    function flipCard(){
+    // function flipCard(){
 
-    }
+    // }
 
 
     return (
@@ -50,7 +50,7 @@ function MeetDetailComp(props) {
                         </div>
                         <div className='detail-action'>
                             <button>
-                                [+]Topic: {props.topic}
+                                [+]Topics: {props.topic}
                             </button>
                         </div>
                     </div>
