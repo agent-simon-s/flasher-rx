@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import CardStackComp from "../components/card-stack-comp/card-stack-comp"
+import { FETCH_PATH } from "../shared/constants" 
 
 //  on load copy all questions to new array
 //  - will add topic filter later
@@ -9,8 +10,8 @@ import CardStackComp from "../components/card-stack-comp/card-stack-comp"
 
 function QuizPage() {
     const [error, setError] = useState(null);
-    const[ isLoading, setIsLoading ] = useState(true);
-    const[ questionList, setQuestionList ] = useState(null);
+    const[ isLoaded, setIsLoaded ] = useState(false);
+    const[ questionList, setQuestionList ] = useState([]);
 
     useEffect(() => {
         console.log("use efect test");
@@ -20,12 +21,13 @@ function QuizPage() {
         (data) => {
             //2do:  error handling here 
             //3:10 spread version
-            setIsLoading(false);
+            setIsLoaded(true);
+            console.log(FETCH_PATH);
             console.log(data);
             setQuestionList(data);
         },
         (error) => {
-          setIsLoading(false);
+          setIsLoaded(true);
           setError(error);
         });
     },[]);
@@ -34,8 +36,8 @@ function QuizPage() {
     return (
         <section>
             { error && <p>Could not Load Data at this time</p> }
-            { isLoading && <p>Loading your next question...</p> }
-            { true && <CardStackComp meets={questionList}></CardStackComp> }
+            { !isLoaded && <p>Loading your next question...</p> }
+            { questionList && <CardStackComp meets={questionList}></CardStackComp> }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
