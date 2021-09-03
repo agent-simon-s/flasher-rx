@@ -4,12 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
+import { ProviderContextQuiz } from './store/context-quiz';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProviderContextQuiz>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProviderContextQuiz>
   </React.StrictMode>,
   document.getElementById('root')
 );
