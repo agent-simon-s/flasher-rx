@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ContextQuiz from '../../store/context-quiz';
 import ContentCardComp from '../content-card/card-comp.jsx';
 import './question-detial-comp.css';
 
@@ -14,8 +15,10 @@ import './question-detial-comp.css';
 // score tracker 
 
 function QuestionDetailComp(props) {
+    const quizCtx = useContext(ContextQuiz);
+    const isAsked = quizCtx.isQsAsked(props.id);
+
     //const[ isActive, setIsActive] = useState(false);
-    //const[ isAsked, setIsAsked] = useState(false);
     const[ isFlipped, setIsFlipped ] = useState(false);
     const[ wasFlipped, setWasFlipped ] = useState(false);
     const[ chosen, setChosen ] = useState(null);
@@ -23,6 +26,17 @@ function QuestionDetailComp(props) {
     const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
     //let toggleFavCopy = '[+]';
+
+    function toggleAskedHandler() { 
+        if(isAsked) {
+            console.log("is asked");
+        } else {
+            quizCtx.addQuiz({
+                key: props.id,
+                id: props.id, 
+            })
+        }
+    }
 
 
     function flipCard () {
@@ -118,8 +132,8 @@ function QuestionDetailComp(props) {
                     <button onClick={nextQuestionPlease} disabled={!isRevealed}>
                         Next
                     </button>
-                    <button>
-                        [+]
+                    <button onClick={toggleAskedHandler}>
+                        {isAsked ? '[-]' : '[+]'}
                     </button>
                 </div>
             
