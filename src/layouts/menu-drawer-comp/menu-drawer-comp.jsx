@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import './menu-drawer-comp.scss';
 
 export default function MenuDrawerComp(props) {
