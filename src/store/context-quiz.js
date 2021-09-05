@@ -1,19 +1,20 @@
 import { createContext, useState } from 'react';
 
 const ContextQuiz = createContext({
-    answered: [],
+    //answered: [],
     revealed: [],
-    totalRevealed: 0,
-    totalAnswered: 0,
-    totalCorrect: 0,
-    totalWrong: 0
+    quizIndex: 0,
+    //totalRevealed: 0,
+    //totalAnswered: 0,
+    //totalCorrect: 0,
+    //totalWrong: 0
 });
 
 export function ProviderContextQuiz(props) {
-    const [ qRevealed, setQRevealed ] = useState([])
+    const [ qRevealed, setQRevealed ] = useState([]);
+    const [ quizIndexx, setQuizIndexx ] = useState(0);
     //const [ correctAns, setCorrectAns ] = useState([])
     //const [ wrongAns, setWrongAns ] = useState([])
-
     
     function addQuizHandler (newQ) {
         setQRevealed((prevQs) => {
@@ -21,23 +22,30 @@ export function ProviderContextQuiz(props) {
         });
     }
 
-    function removeQuizHandler (myQId) {
-        setQRevealed((prevQs) => {
-            return prevQs.filter( qs => qs.id !== myQId);
-        });
-    }
+    // function removeQuizHandler (myQId) {
+    //     setQRevealed((prevQs) => {
+    //         return prevQs.filter( qs => qs.id !== myQId);
+    //     });
+    // }
 
     function isQsRevealedHandler (myQId) {
         return qRevealed.some( qs => qs.id === myQId );
     }
 
+    function incQuizIndexHandler () {
+        setQuizIndexx(() => quizIndexx+1);
+    }
+
     const context = {
         revealed: qRevealed,
+        //totalRevealed: quizIndex,
         totalRevealed: qRevealed.length,
         addQuiz: addQuizHandler,
-        isQsAsked: isQsRevealedHandler
-    };
+        isQsRevealed: isQsRevealedHandler,
+        incQuizIndex: incQuizIndexHandler,
+        quizIndex: quizIndexx
 
+    };
 
     return (
         <ContextQuiz.Provider value={context}>
