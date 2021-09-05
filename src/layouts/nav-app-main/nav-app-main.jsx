@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import MenuDrawerComp from "../menu-drawer-comp/menu-drawer-comp";
 import './nav-app-main.scss';
 
 function NavMain(props){
@@ -15,9 +16,7 @@ function NavMain(props){
                <li><Link to="/add">ADD</Link></li>
                {/*<li><Link to="/favorites">Fav</Link></li>*/}
            </ul>
-           <div>
-               
-           </div>
+           <MenuDrawerComp />
        </header>
     )
 }
