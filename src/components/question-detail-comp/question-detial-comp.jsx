@@ -15,21 +15,25 @@ import './question-detial-comp.scss';
 
 function QuestionDetailComp(props) {
     const quizCtx = useContext(ContextQuiz);
-    const isAsked = quizCtx.isQsAsked;
-    //const[ isActive, setIsActive] = useState(false);
+    const isAsked = quizCtx.isQsRevealed;
+    // const isAsked = quizCtx.isQsAsked;
+    // const isAsked = quizCtx.isQsRevealed;
+    // const[ isActive, setIsActive] = useState(false);
     const[ isFlipped, setIsFlipped ] = useState(false);
-    //const[ wasFlipped, setWasFlipped ] = useState(false);
+    // const[ wasFlipped, setWasFlipped ] = useState(false);
     const[ myChoice, setChosen ] = useState(null);
+    const[ choiceValid, setChoiceValid ] = useState(null);
     const[ myAnswerIs, setMyAnswerIs ] = useState(null);
-    //const[ isCorrect, setIsCorrect] = useState(null);
+    // const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
-    //let toggleFavCopy = '[+]';
+    // let toggleFavCopy = '[+]';
     const myRef = useRef(props.ndx);
 
     let curQ = quizCtx.quizIndex;
+    let missedCount = quizCtx.totalMissed;
 
     const scrollToCurrent = () => myRef.current.scrollIntoView()    
-   // run this function from an event handler or an effect to execute scroll 
+    // run this function from an event handler or an effect to execute scroll 
 
     // useEffect(() => {
     //     console.log(`new card is ${curQ}`);
@@ -58,17 +62,27 @@ function QuestionDetailComp(props) {
         console.log("flip");
     }
 
-    function selectAnswer(choice, validity) {
+    function selectAnswer(choice, validity ) {
         console.log(`select ${choice} is ${validity}`);
         setChosen(choice);
-        //setMyAnswerIs(choice);
+        setChoiceValid(validity);
     }
 
     function checkAnswer() {
+        console.log(`choice ${myChoice} is ${choiceValid} `);
+        setMyAnswerIs(choiceValid);
         setIsRevealed(true);
-        setMyAnswerIs(myChoice);
-        console.log(`check ${myAnswerIs}`);
-        //console.log(`check ${answer}`);
+        if (!choiceValid) {
+            quizCtx.addQsToMissed({
+                key: props.id,
+                id: props.id, 
+                index: props.ndx
+            });   
+        }
+        
+        //myChoice ? quizCtx.addQsToMissed(); props.id
+        console.log(`check answer ${myAnswerIs}`);
+        //props.id
     }
 
     function nextQuestionPlease() {
@@ -85,8 +99,7 @@ function QuestionDetailComp(props) {
                 {/*  FRONT */}
                 <div className="card-front" autoFocus={(props.ndx === curQ) ? true : false}>
                     <h3 className='detail-title'>{props.poser}?</h3> 
-                    <span className="qcount">{props.topic} | { props.ndx + 1 }/{props.count}</span>
-                    <span> {props.ndx} ==? {curQ} </span>
+                    <span className="qcount">{props.topic} | { props.ndx + 1 }/{props.count}   <span className='wong'>{missedCount}</span></span>
                     <div className='detail'>
                         <div className='detail-info'> 
                             <ol ref={myRef}>
@@ -133,7 +146,7 @@ function QuestionDetailComp(props) {
                     <button className='btn btn-close' onClick={flipCard}>
                         Turn Over
                     </button>
-                    <button onClick={checkAnswer} disabled={ isRevealed || myChoice === null }>
+                    <button onClick={() => checkAnswer(props.id)} disabled={ isRevealed || myChoice === null }>
                         Answer
                     </button>
                     <button onClick={nextQuestionPlease} disabled={!isRevealed}>
