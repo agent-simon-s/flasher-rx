@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import './nav-app-main.css';
+import './nav-app-main.scss';
 
 function NavMain(props){
     return (

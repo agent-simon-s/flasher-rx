@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import ContentCardComp from '../content-card/card-comp.jsx';
-import './form-add-comp.css'
+import './form-add-comp.scss'
 
 function FormAddComp(props){
     const inptTopicRef = useRef();

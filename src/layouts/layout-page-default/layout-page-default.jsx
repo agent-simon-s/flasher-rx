@@ -1,6 +1,6 @@
 // import {Link} from "react-router-dom"
 import NavMain from '../nav-app-main/nav-app-main.jsx'
-import './layout-page-default.css'
+import './layout-page-default.scss'
 
 function LayoutPageDef(props){
     return (

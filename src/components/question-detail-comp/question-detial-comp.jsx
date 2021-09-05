@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import ContextQuiz from '../../store/context-quiz';
 import ContentCardComp from '../content-card/card-comp.jsx';
-import './question-detial-comp.css';
-
+import './question-detial-comp.scss';
 
 // Notes:
 // Add  myAnswerIs constant
 // Add check values vs myAnswerIs
 // Add check & x icons on reveal
 // Add functn to 'ask' first question in array
-// reset fucntion
+// reset function
 // back button
 // counter / progress tracker
 // score tracker 

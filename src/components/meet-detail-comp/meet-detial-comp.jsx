@@ -1,6 +1,6 @@
 import ContentCardComp from '../content-card/card-comp.jsx';
 import { useState} from 'react';
-import './meet-detial-comp.css';
+import './meet-detial-comp.scss';
 
 
 function MeetDetailComp(props) {

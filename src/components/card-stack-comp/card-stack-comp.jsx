@@ -1,7 +1,7 @@
 //import MeetDetailComp from "../meet-detail-comp/meet-detial-comp.jsx";
 import { useState, useEffect } from "react";
 import QuestionDetailComp from "../question-detail-comp/question-detial-comp.jsx";
-import './card-stack-comp.css';
+import './card-stack-comp.scss';
 
 
 function CardStackComp (props) {

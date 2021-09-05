@@ -1,4 +1,4 @@
-import './card-comp.css';
+import './card-comp.scss';
 
 function ContentCardComp (props) {
     return (
