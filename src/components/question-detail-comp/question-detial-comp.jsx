@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import ContextQuiz from '../../store/context-quiz';
 import ContentCardComp from '../content-card/card-comp.jsx';
 import './question-detial-comp.scss';
@@ -15,16 +15,26 @@ import './question-detial-comp.scss';
 
 function QuestionDetailComp(props) {
     const quizCtx = useContext(ContextQuiz);
-    const isAsked = quizCtx.isQsAsked(props.id);
-
+    const isAsked = quizCtx.isQsAsked;
     //const[ isActive, setIsActive] = useState(false);
     const[ isFlipped, setIsFlipped ] = useState(false);
     const[ wasFlipped, setWasFlipped ] = useState(false);
     const[ chosen, setChosen ] = useState(null);
     const[ myAnswerIs, setMyAnswerIs ] = useState(null);
-    const[ isCorrect, setIsCorrect] = useState(null);
+    //const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
     //let toggleFavCopy = '[+]';
+    //const myRef = useRef(null);
+
+    let curQ = quizCtx.quizIndex;
+
+    //const scrollToCurrent = () => myRef.current.scrollIntoView()    
+   // run this function from an event handler or an effect to execute scroll 
+
+    useEffect(() => {
+        console.log(`new card is ${curQ}`);
+        //scrollToCurrent(curQ);
+    },[ curQ ]);
 
     function toggleAskedHandler() { 
         if(isAsked) {
@@ -36,7 +46,6 @@ function QuestionDetailComp(props) {
             })
         }
     }
-
 
     function flipCard () {
         if (isFlipped) {
@@ -62,18 +71,20 @@ function QuestionDetailComp(props) {
     function nextQuestionPlease() {
         // setIsRevealed(true);
         // setMyAnswerIs(null);
+        quizCtx.incQuizIndex();
+        console.log("next Question Please");
     }
 
     return (
-        <li key={props.id}>
+        <li key={props.id} className={ `${(props.ndx === curQ) ? "active" : ""}${(props.ndx < curQ) ? "answered" : ""}${(props.ndx > curQ) ? "unasked" : ""}` }>
             <ContentCardComp>
                 {/*  FRONT */}
-                { true && (
-                <div className="card-front">
+                <div className="card-front" autoFocus={(props.ndx === curQ) ? true : false}>
                     <h3 className='detail-title'>{props.poser}?</h3> 
                     <span className="qcount">{props.topic} | { props.ndx + 1 }/{props.count}</span>
+                    <span> {props.ndx} ==? {curQ} </span>
                     <div className='detail'>
-                        <div className='detail-info'>
+                        <div className='detail-info'> 
                             <ol>
                             {
                                 props.choices.map((item,index) => {
@@ -81,10 +92,10 @@ function QuestionDetailComp(props) {
                                         <li 
                                             key={index} 
                                             onClick={() => selectAnswer(index, item.is) }
-                                            className={ `${(myAnswerIs == index) ? "chosen" : ""}
+                                            className={ `${(myAnswerIs === index) ? "chosen" : ""}
                                                         ${(isRevealed && item.is) ? "correct" : ""} 
                                                         ${(isRevealed && !item.is) ? "incorrect" : ""}
-                                                        ${(myAnswerIs == index && isRevealed && !item.is) ? "wrong" : ""}`
+                                                        ${(myAnswerIs === index && isRevealed && !item.is) ? "wrong" : ""}`
                                                     }>
                                             {item.text}
                                         </li>
@@ -104,7 +115,6 @@ function QuestionDetailComp(props) {
                         </div>
                     </div>
                 </div>
-                )}
                     
                 {/*  BACK */}
                 { isFlipped && (
