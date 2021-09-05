@@ -19,6 +19,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "fix-lint": "npm run fix-lint:js && npm run fix-lint:css",
+    "fix-lint:css": "npm run lint:css -- --write",
+    "fix-lint:js": "eslint --fix ./src/ --ext .js --ext .jsx",
+    "lint:css": "prettier --single-quote -l './src/**/*.{css,scss}'",
+    "lint:js": "eslint ./src/ --ext .js --ext .jsx",
+    "lint:graphql-requests": "npm run download-schema && eslint ./src/ --ext .gql --ext .graphql --ext .js --ext .jsx --rule 'graphql/template-strings: [\"error\", {\"env\": \"apollo\",\"schemaJsonFilepath\": \"./hybris-schema.json\"}]'",
+    "lint": "npm run lint:js && npm run lint:css",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
