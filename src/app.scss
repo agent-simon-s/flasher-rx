@@ -50,19 +50,20 @@ charcole 313E50
 queen blue 406FA0
 outer space crayola 343E3D
 */
+
 /* CSS HEX */
---dark-orange: #ff8811ff;
+/*--dark-orange: #ff8811ff;
 --ash-gray: #bfc3baff;
 --silver-chalice: #a9aca9ff;
 --queen-blue: #406fa0ff;
---outer-space-crayola: #343e3dff;
+--outer-space-crayola: #343e3dff;*/
 
 /* CSS HSL */
---dark-orange: hsla(30, 100%, 53%, 1);
+/*--dark-orange: hsla(30, 100%, 53%, 1);
 --ash-gray: hsla(87, 7%, 75%, 1);
 --silver-chalice: hsla(120, 2%, 67%, 1);
 --queen-blue: hsla(211, 43%, 44%, 1);
---outer-space-crayola: hsla(174, 9%, 22%, 1);
+--outer-space-crayola: hsla(174, 9%, 22%, 1);*/
 
 /* SCSS HEX */
 /*$dark-orange: #ff8811ff;
@@ -79,11 +80,11 @@ $queen-blue: hsla(211, 43%, 44%, 1);
 $outer-space-crayola: hsla(174, 9%, 22%, 1);*/
 
 /* SCSS RGB */
-/*$dark-orange: rgba(255, 136, 17, 1);
+$dark-orange: rgba(255, 136, 17, 1);
 $ash-gray: rgba(191, 195, 186, 1);
 $silver-chalice: rgba(169, 172, 169, 1);
 $queen-blue: rgba(64, 111, 160, 1);
-$outer-space-crayola: rgba(52, 62, 61, 1);*/
+$outer-space-crayola: rgba(52, 62, 61, 1);
 
 /* SCSS Gradient */
 /*$gradient-top: linear-gradient(0deg, #ff8811ff, #bfc3baff, #a9aca9ff, #406fa0ff, #343e3dff);
@@ -95,3 +96,16 @@ $gradient-bottom-right: linear-gradient(135deg, #ff8811ff, #bfc3baff, #a9aca9ff,
 $gradient-top-left: linear-gradient(225deg, #ff8811ff, #bfc3baff, #a9aca9ff, #406fa0ff, #343e3dff);
 $gradient-bottom-left: linear-gradient(315deg, #ff8811ff, #bfc3baff, #a9aca9ff, #406fa0ff, #343e3dff);
 $gradient-radial: radial-gradient(#ff8811ff, #bfc3baff, #a9aca9ff, #406fa0ff, #343e3dff);*/
+
+
+$zindex-content: 1;
+$zindex-content-context-overlay: 10;
+$zindex-content-context-contols: 20;
+$zindex-content-context-alert: 50;
+$zindex-drawer: 100;
+$zindex-drawer: mask;
+$zindex-header: 201;
+$zindex-menu: 250;  
+$zindex-masthead: 300;
+$zindex-overlay: 500;
+
