@@ -1,40 +1,40 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import ContextQuiz from '../../store/context-quiz';
 import ContentCardComp from '../content-card/card-comp.jsx';
 import './question-detial-comp.scss';
 
 // Notes:
-// Add  myAnswerIs constant
-// Add check values vs myAnswerIs
-// Add check & x icons on reveal
-// Add functn to 'ask' first question in array
-// reset function
-// back button
-// counter / progress tracker
-// score tracker 
+// x Add  myAnswerIs constant
+// x Add check values vs myAnswerIs
+// x Add check & x icons on reveal
+// x Add functn to 'ask' first question in array
+// x reset function
+// _ back button
+// x counter / progress tracker
+// _ score tracker 
 
 function QuestionDetailComp(props) {
     const quizCtx = useContext(ContextQuiz);
     const isAsked = quizCtx.isQsAsked;
     //const[ isActive, setIsActive] = useState(false);
     const[ isFlipped, setIsFlipped ] = useState(false);
-    const[ wasFlipped, setWasFlipped ] = useState(false);
-    const[ chosen, setChosen ] = useState(null);
+    //const[ wasFlipped, setWasFlipped ] = useState(false);
+    const[ myChoice, setChosen ] = useState(null);
     const[ myAnswerIs, setMyAnswerIs ] = useState(null);
     //const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
     //let toggleFavCopy = '[+]';
-    //const myRef = useRef(null);
+    const myRef = useRef(props.ndx);
 
     let curQ = quizCtx.quizIndex;
 
-    //const scrollToCurrent = () => myRef.current.scrollIntoView()    
+    const scrollToCurrent = () => myRef.current.scrollIntoView()    
    // run this function from an event handler or an effect to execute scroll 
 
-    useEffect(() => {
-        console.log(`new card is ${curQ}`);
-        //scrollToCurrent(curQ);
-    },[ curQ ]);
+    // useEffect(() => {
+    //     console.log(`new card is ${curQ}`);
+    //     scrollToCurrent(curQ);
+    // },[ curQ ]);
 
     function toggleAskedHandler() { 
         if(isAsked) {
@@ -52,7 +52,7 @@ function QuestionDetailComp(props) {
             setIsFlipped(false);
         } else {
             setIsFlipped(true);
-            setWasFlipped(true);
+            //setWasFlipped(true);
             setIsRevealed(true);
         }
         console.log("flip");
@@ -60,23 +60,27 @@ function QuestionDetailComp(props) {
 
     function selectAnswer(choice, validity) {
         console.log(`select ${choice} is ${validity}`);
-        setMyAnswerIs(choice);
+        setChosen(choice);
+        //setMyAnswerIs(choice);
     }
 
-    function checkAnswer(answer) {
+    function checkAnswer() {
         setIsRevealed(true);
-        console.log(`check ${answer}`);
+        setMyAnswerIs(myChoice);
+        console.log(`check ${myAnswerIs}`);
+        //console.log(`check ${answer}`);
     }
 
     function nextQuestionPlease() {
-        // setIsRevealed(true);
-        // setMyAnswerIs(null);
         quizCtx.incQuizIndex();
+        scrollToCurrent(curQ);
         console.log("next Question Please");
     }
 
     return (
-        <li key={props.id} className={ `${(props.ndx === curQ) ? "active" : ""}${(props.ndx < curQ) ? "answered" : ""}${(props.ndx > curQ) ? "unasked" : ""}` }>
+        <li 
+            key={props.id} 
+            className={ `${(props.ndx === curQ) ? "active" : ""}${(props.ndx < curQ) ? "answered" : ""}${(props.ndx > curQ) ? "unasked" : ""}` }>
             <ContentCardComp>
                 {/*  FRONT */}
                 <div className="card-front" autoFocus={(props.ndx === curQ) ? true : false}>
@@ -85,14 +89,14 @@ function QuestionDetailComp(props) {
                     <span> {props.ndx} ==? {curQ} </span>
                     <div className='detail'>
                         <div className='detail-info'> 
-                            <ol>
+                            <ol ref={myRef}>
                             {
                                 props.choices.map((item,index) => {
                                     return(
                                         <li 
                                             key={index} 
                                             onClick={() => selectAnswer(index, item.is) }
-                                            className={ `${(myAnswerIs === index) ? "chosen" : ""}
+                                            className={ `${(myChoice === index) ? "chosen" : ""}
                                                         ${(isRevealed && item.is) ? "correct" : ""} 
                                                         ${(isRevealed && !item.is) ? "incorrect" : ""}
                                                         ${(myAnswerIs === index && isRevealed && !item.is) ? "wrong" : ""}`
@@ -103,12 +107,6 @@ function QuestionDetailComp(props) {
                                 })
                             }
                             </ol> 
-                            {/*<div className='detail-info'> 
-                                <p>{props.choices[0].text}</p>
-                                <p>{props.choices[1].text}</p>
-                                <p>{props.choices[2].text}</p>
-                                <p>{props.choices[3].text}</p>
-                            </div>*/}
                         </div>
                         <div className='detail-thumb'>
                             <img src={props.img[0].src} alt={props.img[0].alt} />
@@ -135,7 +133,7 @@ function QuestionDetailComp(props) {
                     <button className='btn btn-close' onClick={flipCard}>
                         Turn Over
                     </button>
-                    <button onClick={checkAnswer} disabled={ isRevealed || myAnswerIs === null }>
+                    <button onClick={checkAnswer} disabled={ isRevealed || myChoice === null }>
                         Answer
                     </button>
                     <button onClick={nextQuestionPlease} disabled={!isRevealed}>
