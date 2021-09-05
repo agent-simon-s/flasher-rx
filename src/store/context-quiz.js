@@ -1,25 +1,44 @@
 import { createContext, useState } from 'react';
 
 const ContextQuiz = createContext({
+    quizIndex: 0,
     //answered: [],
     revealed: [],
-    quizIndex: 0,
-    //totalRevealed: 0,
+    missed: [],
+    totalRevealed: 0,
     //totalAnswered: 0,
     //totalCorrect: 0,
-    //totalWrong: 0
+    totalMissed: 0
 });
 
 export function ProviderContextQuiz(props) {
-    const [ qRevealed, setQRevealed ] = useState([]);
     const [ quizIndexx, setQuizIndexx ] = useState(0);
+    const [ qRevealed, setQRevealed ] = useState([]);
     //const [ correctAns, setCorrectAns ] = useState([])
-    //const [ wrongAns, setWrongAns ] = useState([])
+    const [ missedQs, addMissedQs ] = useState([])
+
+    function incQuizIndexHandler () {
+        setQuizIndexx(() => quizIndexx+1);
+    }
     
-    function addQuizHandler (newQ) {
+    // function addQsToAnsweredHandler (newQ) {
+    //     setQRevealed((prevQs) => {
+    //         return prevQs.concat(newQ);
+    //     });
+    // }
+
+    function addQsToRevealedHandler (newQ) {
         setQRevealed((prevQs) => {
             return prevQs.concat(newQ);
         });
+    }
+
+    function addQsToMissedHandler (newQ) {
+        addMissedQs((prevQs) => {
+            return prevQs.concat(newQ);
+        });
+        //console.log("missed");
+        //console.log(newQ);
     }
 
     // function removeQuizHandler (myQId) {
@@ -32,19 +51,18 @@ export function ProviderContextQuiz(props) {
         return qRevealed.some( qs => qs.id === myQId );
     }
 
-    function incQuizIndexHandler () {
-        setQuizIndexx(() => quizIndexx+1);
-    }
-
+    
     const context = {
+        quizIndex: quizIndexx,
         revealed: qRevealed,
-        //totalRevealed: quizIndex,
         totalRevealed: qRevealed.length,
-        addQuiz: addQuizHandler,
-        isQsRevealed: isQsRevealedHandler,
+        missed: missedQs,
+        totalMissed: missedQs.length,
         incQuizIndex: incQuizIndexHandler,
-        quizIndex: quizIndexx
-
+        //addQsToAnswered: addQsToAnsweredHandler,
+        addQsToRevealed: addQsToRevealedHandler,
+        isQsRevealed: isQsRevealedHandler,
+        addQsToMissed: addQsToMissedHandler
     };
 
     return (
