@@ -1,3 +1,5 @@
+@import '../../app.scss';
+
 header {
   position: absolute;
   top: 0;
@@ -7,7 +9,7 @@ header {
   height: 3.0rem;
   background-color: #343e3d;
   box-shadow: 2px 3px #ccc;
-  z-index: 100;
+  z-index: $zindex-header;
 }
 
 .masthead{
@@ -28,6 +30,7 @@ header {
   color: #eee;
   text-transform: uppercase;
   letter-spacing: 0.65rem;
+  z-index: $zindex-masthead;
 }
 
 nav{
