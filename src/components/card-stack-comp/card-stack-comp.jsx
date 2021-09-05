@@ -29,7 +29,7 @@ function CardStackComp (props) {
                             choices={meet.choices}
                             hint={meet.hint}
                             img={meet.img}
-                            asked={index == 0 ? true : false } />
+                            asked={index === 0 ? true : false } />
                     )
                 })
              }
