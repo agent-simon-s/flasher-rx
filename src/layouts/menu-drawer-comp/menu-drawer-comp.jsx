@@ -16,6 +16,10 @@ export default function MenuDrawerComp(props) {
        console.log("toggle menu"); 
     }
 
+    function onCahngeHandler(){
+        console.log("do stuff"); 
+    };
+
     function submitHandler(event) {
         event.preventDefault();
         console.log("settings update");
@@ -36,6 +40,7 @@ export default function MenuDrawerComp(props) {
                                 name="react-tips"
                                 value="option1"
                                 checked={true}
+                                onChange={onCahngeHandler}
                                 className="form-check-input"
                               />
                               Setting A
@@ -48,6 +53,7 @@ export default function MenuDrawerComp(props) {
                                 name="react-tips"
                                 value="option1"
                                 checked={true}
+                                onChange={onCahngeHandler}
                                 className="form-check-input"
                               />
                               Setting B
@@ -60,6 +66,7 @@ export default function MenuDrawerComp(props) {
                                 name="react-tips"
                                 value="option1"
                                 checked={true}
+                                onChange={onCahngeHandler}
                                 className="form-check-input"
                               />
                               Setting C
