@@ -10,6 +10,25 @@ header {
   background-color: #343e3d;
   box-shadow: 2px 3px #ccc;
   z-index: $zindex-header;
+  text-align: center;
+
+
+    //phablet +
+    @media only screen and (min-width: 400px) {
+      height: 3.0rem;
+    }
+    // mobile landscape
+    @media only screen and (min-width: 500px) and (max-height: 420px) {
+      height: 2.75rem;
+    }
+    //ipad+
+    @media only screen and (min-width: 760px) {
+      height: 4.5rem;
+    }
+    // ipad landscape
+    @media only screen and (min-width: 1000px) {
+      height: 3.5rem;
+    }
 }
 
 .masthead{
@@ -21,17 +40,51 @@ header {
   padding-right: 1rem;
   margin: 0;
   background-color: #FF8811;
+
+  h1{
+    padding: 0;
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.1rem;
+    color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 0.65rem;
+    z-index: $zindex-masthead;
+  }
+
+    //phablet +
+    @media only screen and (min-width: 400px) {
+      
+    }
+    // mobile landscape
+    @media only screen and (min-width: 500px) and (max-height: 420px) {
+      height: 0.81rem;
+      h1 {
+        font-size: 0.80rem;
+        line-height: 0.80rem;
+        letter-spacing: 0.75rem;
+      }
+    }
+    //ipad+
+    @media only screen and (min-width: 760px) {
+      height: 1.75rem;
+      h1 {
+        font-size: 1.4rem;
+        line-height: 1.75rem;
+        letter-spacing: 0.65rem;
+      }
+    }
+    // ipad landscape
+    @media only screen and (min-width: 1000px) {
+      height: 1.33rem;
+      h1 {
+        font-size: 1.25rem;
+        line-height: 1.33rem;
+        letter-spacing: 0.75rem;
+      }
+    }
 }
-.masthead h1{
-  padding: 0;
-  margin: 0;
-  font-size: 1.15rem;
-  line-height: 1.1rem;
-  color: #eee;
-  text-transform: uppercase;
-  letter-spacing: 0.65rem;
-  z-index: $zindex-masthead;
-}
+  
 
 nav{
   
@@ -46,6 +99,7 @@ ul, li {
 ul.nav-list {
   display: block;
   width: 100%;
+  max-width: 700px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,28 +107,59 @@ ul.nav-list {
   flex-wrap: nowrap;
   list-style: none;
   padding: 0.3rem;
-  margin: 0;
-}
-ul.nav-list li {
-  flex-basis:  auto;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  margin: 0 auto;
 
-ul.nav-list li a {
-  display: inline-block;
-  padding: 0.05rem 0.5rem;
-  margin: 0;
-  /*border: 1px solid #406FA0;*/
-  background-color: #A9ACA9;
-  border-radius: 0.15rem;
-  color: #FFF;
-  font-size: 0.75rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08rem;
-  text-decoration: none;
-  
-  /*box-shadow: 2px 3px #ccc;*/
+  li {
+    flex-basis:  auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+     a {
+      display: inline-block;
+      padding: 0.05rem 0.5rem;
+      margin: 0;
+      /*border: 1px solid #406FA0;*/
+      background-color: #A9ACA9;
+      border-radius: 0.15rem;
+      color: #FFF;
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      text-decoration: none;
+      
+      /*box-shadow: 2px 3px #ccc;*/
+    }
+  }
+    //phablet +
+    @media only screen and (min-width: 400px) {
+      
+    }
+   // mobile landscape
+    @media only screen and (min-width: 500px) and (max-height: 420px) {
+      padding: 0.1rem;
+      li  a{
+        padding: 0 0.75rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.15rem;
+      }
+    }
+    //ipad+
+    @media only screen and (min-width: 760px) {
+      padding: 0.475rem;
+      li  a{
+        padding: 0.1rem 1.0rem;
+        font-size: 0.88rem;
+        letter-spacing: 0.15rem;
+      }
+      
+    }
+    // ipad landscape
+    @media only screen and (min-width: 1000px) {
+      
+    }
 }
+  
+
+   

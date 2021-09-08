@@ -1,3 +1,5 @@
+@import '../../app.scss';
+
 .layout-page-default{
   box-sizing: border-box;
   position: static;
@@ -36,14 +38,44 @@
   width: auto;
   height: auto;
   padding-top: 4rem;
-  padding-left: 0.33rem;
-  padding-right: 0.36rem;
-  padding-bottom: 1.75rem;
-  background-color: #BFC3BA;
+  padding-left: 0.25rem;
+  padding-right: 0.30rem;
+  padding-bottom: 1.2rem;
+  background-color: $ash-gray;
   /*background: linear-gradient(180deg, #fefefeff, #bfc3baff, #a9aca9ff);*/
   box-shadow: 2px 3px #343E3D;
   overflow: hidden;
   overflow-y: scroll;
+  text-align: center;
+
+  //phablet +
+  @media only screen and (min-width: 420px) {
+    padding-top: 4.15rem;
+    padding-left: 0.66rem;
+    padding-right: 0.66rem;
+    padding-bottom: 1.75rem;
+  }
+
+  // mobile landscape
+  @media only screen and (min-width: 500px) and (max-height: 420px) {
+    padding-top: 3.3rem;
+    padding-left: 0.66rem;
+    padding-right: 0.66rem;
+    padding-bottom: 1.75rem;
+  }
+
+
+ //ipad+
+  @media only screen and (min-width: 760px) {
+    padding-top: 5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.75rem;
+  }
+  // ipad landscape
+  @media only screen and (min-width: 1000px) {
+    padding-top: 5rem;
+  }
 }
 
 h1{

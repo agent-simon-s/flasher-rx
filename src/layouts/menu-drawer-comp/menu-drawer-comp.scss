@@ -10,6 +10,29 @@
     overflow: hidden;
     background: $outer-space-crayola;
 
+    //phablet +
+    @media only screen and (min-width: 400px) {
+      top:2.0rem;
+      height: 0.45rem;
+    }
+
+    // mobile landscape
+    @media only screen and (min-width: 500px) and (max-height: 420px) {
+      top:2.35rem;
+      height: 0.48rem;
+    }
+
+    //ipad+
+    @media only screen and (min-width: 760px) {
+      top: 3.9rem;
+      height: 0.66rem;
+    }
+    // ipad landscape
+    @media only screen and (min-width: 1000px) {
+      top: 3.5rem;
+      height: 0.66rem;
+    }
+
     &.menu-open{
         height: auto;
         min-height: 4rem;
