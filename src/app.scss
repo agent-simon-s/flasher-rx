@@ -1,3 +1,5 @@
+@import './shared/styles/media-queries.scss';
+
 .App {
   text-align: center;
 }
@@ -109,3 +111,11 @@ $zindex-menu: 250;
 $zindex-masthead: 300;
 $zindex-overlay: 500;
 
+
+:global {
+  h1, h2, h3 {
+    font-size: 0.8rem;
+    margin-top: 0.0rem;
+    margin-bottom: 0.1rem;
+    }
+}

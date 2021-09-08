@@ -1,0 +1,30 @@
+$screen-Dtsm-Xxs: 411px;
+$screenXxs: 480px;
+$screenXs: 640px;
+$screenSm: 768px;
+$screenMd: 1024px;
+$screenLg: 1200px;
+$screenXl: 1920px;
+
+$xxs-only: '(min-width: #{$screenXxs}) and (max-width: #{$screenXs - 1})';
+$xs-only: '(min-width: #{$screenXs}) and (max-width: #{$screenSm - 1})';
+$sm-only: '(min-width: #{$screenSm}) and (max-width: #{$screenMd - 1})';
+$md-only: '(min-width: #{$screenMd}) and (max-width: #{$screenLg - 1})';
+$lg-only: '(min-width: #{$screenLg}) and (max-width: #{$screenXl - 1})';
+$xl-only: '(min-width: #{$screenXl})';
+
+$min-xxs: '(min-width: #{$screenXxs})';
+$min-xs: '(min-width: #{$screenXs})';
+$min-sm: '(min-width: #{$screenSm})';
+$min-md: '(min-width: #{$screenMd})';
+$min-lg: '(min-width: #{$screenLg})';
+$min-xl: '(min-width: #{$screenXl})';
+
+$max-xxs: '(max-width: #{$screenXxs})';
+$max-xs: '(max-width: #{$screenXs})';
+$max-sm: '(max-width: #{$screenSm})';
+$max-md: '(max-width: #{$screenMd})';
+
+/* ****  DTSM UI Kit: isolated queries *** */
+$min-dtsmxxs: '(min-width: #{$screen-Dtsm-Xxs})';
+$max-dtsmxxs: '(max-width: #{$screen-Dtsm-Xxs})';
