@@ -62,10 +62,8 @@ function QuizPage() {
             { error && <p>Could not Load Data at this time</p> }
             { !isLoaded && <p>Loading your next question...</p> }
             { questionList && <CardStackComp meets={questionList}></CardStackComp> }
-            { true && 
+            { isFinished && 
                 <ScoreBoardComp>
-                    Congratualtions You Finished 
-                    You got { qCount } right!
                 </ScoreBoardComp>
             }
                {/* {
