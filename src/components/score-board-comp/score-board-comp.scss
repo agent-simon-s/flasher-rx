@@ -1,7 +1,6 @@
 @import '../../app.scss';
 
 
-div.content-container-card,
 div.result-scorecard {
     z-index: $zindex-header;
     position: absolute;
@@ -12,6 +11,7 @@ div.result-scorecard {
     bottom: 2.75rem;
     width: auto;
     height: auto;
+    transition: all;
 }
 
 .mask{
