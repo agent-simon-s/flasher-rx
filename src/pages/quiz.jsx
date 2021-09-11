@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import ContextQuiz from '../store/context-quiz';
 import CardStackComp from "../components/card-stack-comp/card-stack-comp"
+import ScoreBoardComp from '../components/score-board-comp/score-board-comp';
 import { FETCH_PATH } from "../shared/constants" 
 
 //  on load copy all questions to new array
@@ -9,18 +11,23 @@ import { FETCH_PATH } from "../shared/constants"
 //  - context first card
 
 function QuizPage() {
+    const quizCtx = useContext(ContextQuiz);
     const [error, setError] = useState(null);
     const[ isLoaded, setIsLoaded ] = useState(false);
     const[ questionList, setQuestionList ] = useState([]);
+    const[ qCount, setQCount ] = useState();
+    const[ isFinished, setIsFinished ] = useState(false);
+
+    let curQ = quizCtx.quizIndex;
 
     useEffect(() => {
-        console.log("use efect test");
+        console.log("use effect test");
         fetch('http://localhost:1337/flashcards').then(responce => { 
             return responce.json();
         }).then(
         (data) => {
-            //2do:  error handling here 
-            //3:10 spread version
+            // 2do:  error handling here 
+            // 3:10 spread version
             setIsLoaded(true);
             console.log(FETCH_PATH);
             console.log(data);
@@ -32,12 +39,35 @@ function QuizPage() {
         });
     },[]);
 
+    useEffect(() => {
+        setQCount(questionList.length);
+        console.log(`setQCount: ${qCount}`);
+    },[questionList]);
+
+    useEffect(() => {
+        if (curQ >= qCount ) {
+            setIsFinished(true);
+            console.log(`Yay done, reached: ${curQ} of ${qCount}`);
+        } else {
+            console.log(`Keep going: on no. ${curQ} of ${qCount}`);
+        } ;
+        // console.log(`revealedCount: ${revealedCount}`);
+        // console.log(`missedCount: ${missedCount}`);
+        // console.log(`correctCount: ${correctCount}`);
+    },[curQ]);
+
 
     return (
         <section>
             { error && <p>Could not Load Data at this time</p> }
             { !isLoaded && <p>Loading your next question...</p> }
             { questionList && <CardStackComp meets={questionList}></CardStackComp> }
+            { true && 
+                <ScoreBoardComp>
+                    Congratualtions You Finished 
+                    You got { qCount } right!
+                </ScoreBoardComp>
+            }
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
