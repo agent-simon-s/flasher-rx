@@ -105,7 +105,7 @@ $zindex-content-context-overlay: 10;
 $zindex-content-context-contols: 20;
 $zindex-content-context-alert: 50;
 $zindex-drawer: 100;
-$zindex-drawer: mask;
+$zindex-drawer: 200;
 $zindex-header: 201;
 $zindex-menu: 250;  
 $zindex-masthead: 300;
@@ -113,7 +113,7 @@ $zindex-overlay: 500;
 
 
 :global {
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-size: 0.8rem;
     margin-top: 0.0rem;
     margin-bottom: 0.1rem;
