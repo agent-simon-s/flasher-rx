@@ -40,6 +40,7 @@ function ScoreBoardComp(props) {
     return (
         <>
         <div className="result-scorecard content-container-card">
+            <button className='btn btn-close' onClick={props.onCancel}>(X)</button>
             <div className="in-result-scorecard">
                     <h2>Congratualtions You Finished</h2> 
                     You got {averageScore}% right!
@@ -57,10 +58,9 @@ function ScoreBoardComp(props) {
                         <h4 className="score">{averageScore}%</h4>
                     </li>
                 </ul>
-                <button onclick={percent(5, 8)}>RESET</button>
+                <button onClick={props.onReset}>RESET</button>
             </div>
         </div>
-        <div className="mask">&nbsp;</div>
         </>
 
         );
