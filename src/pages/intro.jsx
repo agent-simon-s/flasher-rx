@@ -49,3 +49,12 @@ export default IntroPage;
 // error inject
 // Account
 // login
+// context for score seperate from quiz
+// context for question pool seperate from quiz
+// card moved to layouts
+// !!! car gets class passed to it
+// !!! fucntion to close modal & reset quiz
+// medai query condisiton on score card
+// untilties component with percent fucntion
+// mre questions
+// evn for lcoal fetch only
