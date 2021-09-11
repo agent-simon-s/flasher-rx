@@ -25,7 +25,7 @@ function IntroPage() {
                     <li className="todo">+ Test by subject</li>
                     <li className="todo">+ Dark Mode</li>
                     <li className="todo">+ High Contrast Mode</li>
-                    <li className="todo">+ Fixed Buttons</li>
+                    <li className="todo">+ Fixed Buttons?</li>
                 </ul>
             </ContentCardComp>
         </div>
