@@ -3,7 +3,7 @@
 
 div.result-scorecard {
     z-index: $zindex-header;
-    position: absolute;
+    position: fixed;
     display: block;
     top: 4.75rem;
     left: 2.5rem;
@@ -12,6 +12,18 @@ div.result-scorecard {
     width: auto;
     height: auto;
     transition: all;
+}
+
+.btn.btn-close{
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    width: 2.6rem;
+    height: 1.25rem;
+    font-size: 0.88rem;
+    line-height: 1.1rem;
+    border-color: $ash-gray;
+    text-align: center;
 }
 
 .mask{
@@ -28,6 +40,7 @@ div.result-scorecard {
     z-index: $zindex-drawer;
 }
 .in-result-scorecard{
+
     ul{
           display: flex;
           flex-direction: row;
