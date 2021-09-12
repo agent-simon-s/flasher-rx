@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import ContextQuiz from '../store/context-quiz';
 import CardStackComp from "../components/card-stack-comp/card-stack-comp"
 import ScoreBoardComp from '../components/score-board-comp/score-board-comp';
+import ModalMask from '../layouts/modal-comp/modal-mask';
 import { FETCH_PATH } from "../shared/constants" 
 
 //  on load copy all questions to new array
@@ -17,8 +18,22 @@ function QuizPage() {
     const[ questionList, setQuestionList ] = useState([]);
     const[ qCount, setQCount ] = useState();
     const[ isFinished, setIsFinished ] = useState(false);
+    const [ modalVisy, setModalVisy ] = useState(false);
 
     let curQ = quizCtx.quizIndex;
+
+    function closeModalWindow () {
+        setIsFinished(false);
+        setModalVisy(false);
+        console.log("close-a modal");
+    }
+
+    function closeAndResetQuiz () {
+        setQCount(0);
+        setIsFinished(false);
+        setModalVisy(false);
+        console.log("close-a modal");
+    }
 
     useEffect(() => {
         console.log("use effect test");
@@ -47,6 +62,7 @@ function QuizPage() {
     useEffect(() => {
         if (curQ >= qCount ) {
             setIsFinished(true);
+            setModalVisy(true);
             console.log(`Yay done, reached: ${curQ} of ${qCount}`);
         } else {
             console.log(`Keep going: on no. ${curQ} of ${qCount}`);
@@ -58,14 +74,20 @@ function QuizPage() {
 
 
     return (
+        <>
         <section>
             { error && <p>Could not Load Data at this time</p> }
             { !isLoaded && <p>Loading your next question...</p> }
             { questionList && <CardStackComp meets={questionList}></CardStackComp> }
             { isFinished && 
-                <ScoreBoardComp>
+                <ScoreBoardComp
+                    className={ modalVisy ? "modalStyle" : "cardStyle"}
+                    onCancel={closeModalWindow}
+                    onReset={closeAndResetQuiz}
+                    >
                 </ScoreBoardComp>
             }
+            
                {/* {
                     DUMMY_DATA.map((item, index) => {
                         return(
@@ -79,6 +101,8 @@ function QuizPage() {
                 </ul>
             */}    
         </section>
+        { modalVisy && <ModalMask onCancel={closeModalWindow} /> } 
+        </>
        )
 }
 
