@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import ContentCardComp from '../components/content-card/card-comp.jsx';
+import ContentCardComp from '../layouts/content-card/card-comp';
 
 function IntroPage() {
     return (
@@ -58,3 +58,4 @@ export default IntroPage;
 // untilties component with percent fucntion
 // mre questions
 // evn for lcoal fetch only
+// class conditiona on final score 

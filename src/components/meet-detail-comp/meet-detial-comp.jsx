@@ -1,4 +1,4 @@
-import ContentCardComp from '../content-card/card-comp.jsx';
+import ContentCardComp from '../../layouts/content-card/card-comp';
 import { useState} from 'react';
 import './meet-detial-comp.scss';
 

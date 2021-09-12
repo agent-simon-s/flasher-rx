@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import ContentCardComp from '../content-card/card-comp.jsx';
+import ContentCardComp from '../../layouts/content-card/card-comp';
 import './form-add-comp.scss'
 
 function FormAddComp(props){

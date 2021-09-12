@@ -1,7 +1,7 @@
 //import React, { useState, useContext, useRef } from "react";
 import React, { useContext, useState, useEffect } from "react";
 import ContextQuiz from '../../store/context-quiz';
-import ContentCardComp from '../content-card/card-comp.jsx';
+import ContentCardComp from '../../layouts/content-card/card-comp';
 import './score-card-comp.scss';
 
 function ScoreCardComp(props) {
