@@ -1,4 +1,5 @@
 import React, { useState, useContext, useRef } from "react";
+import PropTypes from 'prop-types';
 import ContextQuiz from '../../store/context-quiz';
 import ContentCardComp from '../content-card/card-comp.jsx';
 import './question-detial-comp.scss';
@@ -14,6 +15,20 @@ import './question-detial-comp.scss';
 // _ score tracker 
 
 function QuestionDetailComp(props) {
+    const {
+        key,
+        id,
+        ndx,
+        count,
+        className = '',
+        topic,
+        poser,
+        choices,
+        hint,
+        img,
+        asked
+    } = props;
+
     const quizCtx = useContext(ContextQuiz);
     const isAsked = quizCtx.isQsRevealed;
     // const isAsked = quizCtx.isQsAsked;
@@ -27,7 +42,7 @@ function QuestionDetailComp(props) {
     // const[ isCorrect, setIsCorrect] = useState(null);
     const[ isRevealed, setIsRevealed] = useState(false);
     // let toggleFavCopy = '[+]';
-    const myRef = useRef(props.ndx);
+    const myRef = useRef(ndx);
 
     let curQ = quizCtx.quizIndex;
     let missedCount = quizCtx.totalMissed;
@@ -45,8 +60,8 @@ function QuestionDetailComp(props) {
             console.log("is asked");
         } else {
             quizCtx.addQuiz({
-                key: props.id,
-                id: props.id, 
+                key: id,
+                id: id, 
             })
         }
     }
@@ -74,15 +89,15 @@ function QuestionDetailComp(props) {
         setIsRevealed(true);
         if (!choiceValid) {
             quizCtx.addQsToMissed({
-                key: props.id,
-                id: props.id, 
-                index: props.ndx
+                key: id,
+                id: id, 
+                index: ndx
             });   
         }
         
-        //myChoice ? quizCtx.addQsToMissed(); props.id
+        //myChoice ? quizCtx.addQsToMissed(); id
         console.log(`check answer ${myAnswerIs}`);
-        //props.id
+        //id
     }
 
     function nextQuestionPlease() {
@@ -93,18 +108,18 @@ function QuestionDetailComp(props) {
 
     return (
         <li 
-            key={props.id} 
-            className={ `${(props.ndx === curQ) ? "active" : ""}${(props.ndx < curQ) ? "answered" : ""}${(props.ndx > curQ) ? "unasked" : ""}` }>
+            key={id} 
+            className={ `${(ndx === curQ) ? "active" : ""}${(ndx < curQ) ? "answered" : ""}${(ndx > curQ) ? "unasked" : ""}` }>
             <ContentCardComp>
                 {/*  FRONT */}
-                <div className="card-front" autoFocus={(props.ndx === curQ) ? true : false}>
-                    <h3 className='detail-title'>{props.poser}?</h3> 
-                    <span className="qcount">{props.topic} | { props.ndx + 1 }/{props.count}   <span className='wong'>{missedCount}</span></span>
+                <div className="card-front" autoFocus={(ndx === curQ) ? true : false}>
+                    <h3 className='detail-title'>{poser}?</h3> 
+                    <span className="qcount">{topic} | { ndx + 1 }/{count}   <span className='wong'>{missedCount}</span></span>
                     <div className='detail'>
                         <div className='detail-info'> 
                             <ol ref={myRef}>
                             {
-                                props.choices.map((item,index) => {
+                                choices.map((item,index) => {
                                     return(
                                         <li 
                                             key={index} 
@@ -112,7 +127,7 @@ function QuestionDetailComp(props) {
                                             className={ `${(myChoice === index) ? "chosen" : ""}
                                                         ${(isRevealed && item.is) ? "correct" : ""} 
                                                         ${(isRevealed && !item.is) ? "incorrect" : ""}
-                                                        ${(myAnswerIs === index && isRevealed && !item.is) ? "wrong" : ""}`
+                                                        ${(myChoice === index && isRevealed && !item.is) ? "wrong" : ""}`
                                                     }>
                                             {item.text}
                                         </li>
@@ -122,7 +137,7 @@ function QuestionDetailComp(props) {
                             </ol> 
                         </div>
                         <div className='detail-thumb'>
-                            <img src={props.img[0].src} alt={props.img[0].alt} />
+                            <img src={img[0].src} alt={img[0].alt} />
                         </div>
                     </div>
                 </div>
@@ -130,23 +145,23 @@ function QuestionDetailComp(props) {
                 {/*  BACK */}
                 { isFlipped && (
                 <div className="card-back">
-                    <h3 className='detail-title'>{props.poser}?</h3> 
-                    <span className="qcount">{props.topic} | { props.ndx + 1 }/{props.count}</span>
+                    <h3 className='detail-title'>{poser}?</h3> 
+                    <span className="qcount">{topic} | { ndx + 1 }/{count}</span>
                     <div className='detail'>
                         <div className='detail-info'> 
-                            <p>{props.hint}</p> 
+                            <p>{hint}</p> 
                         </div>
                         <div className='detail-thumb'>
-                             {/* <img src={props.img[0].src} alt={props.img[0].alt} /> */}
+                             {/* <img src={img[0].src} alt={img[0].alt} /> */}
                         </div>
                     </div>
                 </div>
                 )}
                 <div className='detail-action'>
-                    <button className='btn btn-close' onClick={flipCard}>
+                    <button className='btn-action' onClick={flipCard}>
                         Turn Over
                     </button>
-                    <button onClick={() => checkAnswer(props.id)} disabled={ isRevealed || myChoice === null }>
+                    <button onClick={() => checkAnswer(id)} disabled={ isRevealed || myChoice === null }>
                         Answer
                     </button>
                     <button onClick={nextQuestionPlease} disabled={!isRevealed}>
@@ -160,6 +175,24 @@ function QuestionDetailComp(props) {
             </ContentCardComp>
         </li>
     )
-}
+};
+
+
+QuestionDetailComp.propTypes = {
+  id: PropTypes.string,
+  key: PropTypes.string,
+  ndx: PropTypes.number,
+  count: PropTypes.number,
+  className: PropTypes.string,
+  topic: PropTypes.string,
+  poser: PropTypes.string,
+  choices: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node)
+  ]),
+  hint: PropTypes.string,
+  img: PropTypes.string,
+  asked:PropTypes.bool
+};
 
 export default QuestionDetailComp;
