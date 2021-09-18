@@ -53,6 +53,18 @@ ol {
     background-color: #406FA0;
     color: #eee;
     z-index: 5;
+    .links{
+        h5{
+            margin: 0.25rem 0 0 0;
+            font-size: 0.88rem;
+        }
+        span{
+            padding: 0 0 0 0.3rem;
+            a{
+                font-size: 0.88rem;
+            }
+        }
+    }
 }
 
 .detail-title {
