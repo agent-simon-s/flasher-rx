@@ -26,6 +26,7 @@ function QuestionDetailComp(props) {
         choices,
         hint,
         img,
+        links,
         asked
     } = props;
 
@@ -136,9 +137,23 @@ function QuestionDetailComp(props) {
                             }
                             </ol> 
                         </div>
-                        <div className='detail-thumb'>
-                            <img src={img[0].src} alt={img[0].alt} />
-                        </div>
+                        { (img !== undefined ) &&
+                            <span>
+                                {
+                                    img.map((pic,index) => {
+                                            return( 
+                                                <>
+                                                  { (pic.present !== "back") &&
+                                                    <div className='detail-thumb'>
+                                                        <img src={pic.src} alt={pic.alt} />
+                                                    </div>
+                                                   }
+                                               </>
+                                            )
+                                        })
+                                }
+                            </span>
+                        }
                     </div>
                 </div>
                     
@@ -150,9 +165,37 @@ function QuestionDetailComp(props) {
                     <div className='detail'>
                         <div className='detail-info'> 
                             <p>{hint}</p> 
+                            { (links !== undefined ) &&
+                                <div className="links">
+                                    <h5>Links</h5>
+                                    {
+                                    links.map((link,index) => {
+                                            return(
+                                               <span>See: <a key={index} href={link.src}>{link.text}</a><br /></span>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            }
                         </div>
-                        <div className='detail-thumb'>
-                             {/* <img src={img[0].src} alt={img[0].alt} /> */}
+                        <div className='thumbs'>
+                            { (img !== undefined ) &&
+                                <>
+                                    {
+                                        img.map((pic,index) => {
+                                                return( 
+                                                    <>
+                                                      { (pic.present !== "front") &&
+                                                        <div className='detail-thumb'>
+                                                            <img src={pic.src} alt={pic.alt} />
+                                                        </div>
+                                                       }
+                                                   </>
+                                                )
+                                            })
+                                    }
+                                </>
+                            }
                         </div>
                     </div>
                 </div>
