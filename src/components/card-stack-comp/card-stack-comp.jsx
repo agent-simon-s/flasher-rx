@@ -1,7 +1,7 @@
 //import MeetDetailComp from "../meet-detail-comp/meet-detial-comp.jsx";
 import { useState, useEffect } from "react";
 import QuestionDetailComp from "../question-detail-comp/question-detial-comp.jsx";
-import ContextQuiz from '../../store/context-quiz';
+//import ContextQuiz from '../../store/context-quiz';
 import './card-stack-comp.scss';
 
 
@@ -12,7 +12,7 @@ function CardStackComp (props) {
     useEffect(() => {
         setQCount(props.meets.length)
         console.log(`Q-Count: ${qCount}`);
-    },[props.meets]);
+    },[props.meets, qCount]);
 
 
     return (
@@ -31,6 +31,7 @@ function CardStackComp (props) {
                             poser={meet.poser}
                             choices={meet.choices}
                             hint={meet.hint}
+                            links={meet.links}
                             img={meet.img}
                             asked={index === 0 ? true : false } />
                     )
