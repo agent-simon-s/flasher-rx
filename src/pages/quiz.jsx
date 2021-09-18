@@ -3,7 +3,8 @@ import ContextQuiz from '../store/context-quiz';
 import CardStackComp from "../components/card-stack-comp/card-stack-comp"
 import ScoreBoardComp from '../components/score-board-comp/score-board-comp';
 import ModalMask from '../layouts/modal-comp/modal-mask';
-import { FETCH_PATH } from "../shared/constants" 
+import { FETCH_PATH } from "../shared/constants";
+import { Flashcards } from "../constants/fallback-data.js";
 
 //  on load copy all questions to new array
 //  - will add topic filter later
@@ -35,9 +36,19 @@ function QuizPage() {
         console.log("close-a modal");
     }
 
+    function loadFallBackData() {
+        if (Flashcards.length >1 ) {
+            setError(null);
+            setIsLoaded(true);
+            console.log(Flashcards);
+            setQuestionList(Flashcards);
+        }
+    }
+
     useEffect(() => {
         console.log("use effect test");
-        fetch('http://localhost:1337/flashcards').then(responce => { 
+        console.log(FETCH_PATH);
+        fetch(FETCH_PATH).then(responce => { 
             return responce.json();
         }).then(
         (data) => {
@@ -51,6 +62,7 @@ function QuizPage() {
         (error) => {
           setIsLoaded(true);
           setError(error);
+          loadFallBackData();
         });
     },[]);
 
