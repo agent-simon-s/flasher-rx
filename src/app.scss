@@ -114,31 +114,33 @@ $zindex-overlay: 500;
 
 :global {
   h1, h2, h3, h4 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 0.0rem;
     margin-bottom: 0.1rem;
     }
 }
 
 
- :global ul{
-      li {
-      padding-left: 3rem;
+ul.todos{
+    li {
+      padding-left: 2.5rem;
+      margin-bottom: 0.15rem;
+      line-height: 1.25rem;
     }
-    li:before {
+    li::before {
         position: absolute;
-        left: -2.19rem;  
+        left: 0.75rem;  
+        width: 1.5rem;
         text-decoration: none; 
         font-size: 1.2rem;
-        font-weight: 700; 
-        position: absolute;
-        left: -2.19rem;  
-        text-decoration: none; 
-        font-size: 1.2rem;
-        font-weight: 700; 
+        font-weight: 700;
+        line-height: 1.25rem;
+        content: "☐";
+        color:black;
+        text-align: center;
     }
     li.todo:before {
-        content: "☐";
+        content: "x";
       }
     li.done:before {
         content: "☒";

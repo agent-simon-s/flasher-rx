@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import ContentCardComp from '../layouts/content-card/card-comp';
+import '../app.scss'
 
 function IntroPage() {
     return (
@@ -12,23 +13,25 @@ function IntroPage() {
                 <p>Add questions to the pool, <Link to="/add">New Questions Here</Link></p>
             </ContentCardComp>
             <ContentCardComp>
-            <h3>Planned Improvements </h3>
-                <ul>
-                    <li className="todo">+ Score Card</li>
-                    <li className="todo">+ Result Score</li>
-                    <li className="todo">+ History</li>
-                    <li className="done">+ Error Tracker</li>
-                    <li className="done">+ Resurface Errors</li>
-                    <li className="done">+ Average Score</li>
-                    <li className="done">+ Account</li>
-                    <li className="done">+ login</li>
-                    <li className="todo">+ Test by subject</li>
-                    <li className="todo">+ Dark Mode</li>
-                    <li className="todo">+ High Contrast Mode</li>
-                    <li className="todo">+ Fixed Buttons?</li>
+            <h3 >Planned Improvements </h3> 
+                <ul className="todos">
+                    <li className="todo">  Fix routes</li>
+                    <li className="todo">  Fix subdomain</li>
+                    <li className="done">  Score Card</li>
+                    <li className="done">  Result Score</li>
+                    <li className="todo">  History</li>
+                    <li className="done">  Error Tracker</li>
+                    <li className="todo">  Resurface Errors</li>
+                    <li className="done">  Average Score</li>
+                    <li className="todo">  Account</li>
+                    <li className="todo">  login</li>
+                    <li className="todo">  Test by subject</li>
+                    <li className="todo">  Dark Mode</li>
+                    <li className="todo">  High Contrast Mode</li>
+                    <li className="todo">  Fixed Buttons?</li>
                 </ul>
             </ContentCardComp>
-        </div>
+        </div> 
     )
 }
 
