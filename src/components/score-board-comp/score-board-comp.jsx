@@ -1,7 +1,7 @@
 //import React, { useState, useContext, useRef } from "react";
 import React, { useContext, useState, useEffect } from "react";
 import ContextQuiz from '../../store/context-quiz';
-import ContentCardComp from '../../layouts/content-card/card-comp';
+//import ContentCardComp from '../../layouts/content-card/card-comp';
 import './score-board-comp.scss';
 
 function ScoreBoardComp(props) {
@@ -11,7 +11,7 @@ function ScoreBoardComp(props) {
 
     let curQ = quizCtx.quizIndex;
     let missedCount = quizCtx.totalMissed;
-    let revealedCount = quizCtx.totalRevealed;
+    //let revealedCount = quizCtx.totalRevealed;
 
     //is it depend on context's quizCtx.totalRevealed or const revealedCount
 
@@ -19,9 +19,9 @@ function ScoreBoardComp(props) {
        return Math.round((num / denom) * 100);
    }
 
-   const closeHandler = () => {
-       //do stuff
-   }
+   // const closeHandler = () => {
+   //     //do stuff
+   // }
 
     useEffect(() => {
         if (curQ >= 1) {
@@ -33,7 +33,7 @@ function ScoreBoardComp(props) {
         // console.log(`revealedCount: ${revealedCount}`);
         // console.log(`missedCount: ${missedCount}`);
         // console.log(`correctCount: ${correctCount}`);
-    },[curQ]);
+    },[curQ, correctCount, missedCount]);
 
 
 
