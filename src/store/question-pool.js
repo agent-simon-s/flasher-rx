@@ -4,24 +4,23 @@ import { FETCH_PATH } from "../shared/constants";
 import { Flashcards } from "../constants/fallback-data.js";
 
 
-const ContextQuiz = createContext({
-    answered: [],
-    revealed: [],
-    totalRevealed: 0,
-    totalAnswered: 0,
-    totalCorrect: 0,
-    totalWrong: 0
+const ContextQuestionPool = createContext({
+    questions: [],
+    topics: [],
+    questionCount: 0,
+    topicCount: 0
 });
 
 export function ProviderContextQuestionPool(props) {
     const [error, setError] = useState(null);
     const[ isPoolLoaded, setIsPoolLoaded ] = useState(false);
     const[ questionPool, setQuestionPool ] = useState([]);
+    const[ topicPool, setTopicPool ] = useState([]);
     const[ qCount, setQCount ] = useState();
-    const[ isFinished, setIsFinished ] = useState(false);
+    //const[ isFinished, setIsFinished ] = useState(false);
 
 
-    function getTopicsAvailable() {
+    function getTopicsAvailableHandler() {
         //do stuff
     }
 
@@ -29,11 +28,11 @@ export function ProviderContextQuestionPool(props) {
         if (Flashcards.length >1 ) {
             setIsPoolLoaded(true);
             console.log(Flashcards);
-            setQuestionList(Flashcards);
+            setQuestionPool(Flashcards);
         }
     }
 
-    function fetchQuestionPool(){
+    function fetchQuestionPoolHandler(){
         console.log("use effect test");
         console.log(FETCH_PATH);
         fetch(FETCH_PATH).then(responce => { 
@@ -45,10 +44,10 @@ export function ProviderContextQuestionPool(props) {
             setIsPoolLoaded(true);
             console.log(FETCH_PATH);
             console.log(data);
-            setQuestionList(data);
+            setQuestionPool(data);
         },
         (error) => {
-          setIsLoaded(true);
+          setIsPoolLoaded(true);
           setError(error);
           loadFallBackData();
         });
@@ -56,18 +55,20 @@ export function ProviderContextQuestionPool(props) {
 
 
     const context = {
-        // revealed: qRevealed,
-        // totalRevealed: qRevealed.length,
-        // addQuiz: addQuizHandler,
-        // isQsAsked: isQsRevealedHandler
+        questions: questionPool,
+        //questionCount: questionCount,
+        topics: topicPool,
+        //topicCount: topicCount,
+        getTopics: getTopicsAvailableHandler,
+        fetchQuestionPool: fetchQuestionPoolHandler 
     };
 
 
     return (
-        <ContextQuiz.Provider value={context}>
+        <ContextQuestionPool.Provider value={context}>
             {props.children}
-        </ContextQuiz.Provider>
+        </ContextQuestionPool.Provider>
     );
 }
 
-export default ContextQuiz;
+export default ContextQuestionPool;
